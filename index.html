@@ -4,310 +4,548 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nicolas Cespedes Cardenas | Epidemiology & Data Science</title>
-    <meta
-      name="description"
-      content="Professional profile of Nicolas Cespedes Cardenas, DVM, M.Sc., PhD. Epidemiology, disease modeling, and data science for animal health."
-    />
+    <meta name="description" content="Professional profile of Nicolas Cespedes Cardenas, DVM, M.Sc., PhD. Epidemiology, disease modeling, and data science for animal health." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Merriweather:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #0d0f14;
+        --surface: #13161e;
+        --surface2: #1a1e2a;
+        --border: rgba(255,255,255,0.07);
+        --text: #e8e6e0;
+        --muted: #7a7d8a;
+        --accent: #c8a96e;
+        --accent2: #4a9eff;
+        --glow: rgba(200,169,110,0.15);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 16px;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.4;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 1.2rem 4rem;
+        background: rgba(13,15,20,0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-logo {
+        font-family: 'DM Mono', monospace;
+        font-size: 0.75rem; color: var(--accent);
+        letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
+      }
+      .nav-links { display: flex; gap: 2rem; list-style: none; }
+      .nav-links a {
+        font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+        text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s;
+      }
+      .nav-links a:hover { color: var(--text); }
+
+      /* HERO */
+      .hero {
+        min-height: 100vh; display: flex; align-items: center;
+        position: relative; padding: 8rem 4rem 6rem; overflow: hidden;
+      }
+      .hero::before {
+        content: ''; position: absolute; inset: 0;
+        background-image:
+          linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
+        background-size: 60px 60px;
+        animation: gridFloat 20s linear infinite;
+      }
+      @keyframes gridFloat { from { transform: translateY(0); } to { transform: translateY(60px); } }
+      .hero::after {
+        content: ''; position: absolute; top: -20%; right: -10%;
+        width: 700px; height: 700px;
+        background: radial-gradient(ellipse, rgba(200,169,110,0.12) 0%, transparent 65%);
+        pointer-events: none;
+      }
+      .hero-inner { position: relative; z-index: 1; max-width: 900px; }
+      .eyebrow {
+        font-family: 'DM Mono', monospace; font-size: 0.72rem;
+        letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+        margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;
+      }
+      .eyebrow::before { content: ''; width: 2rem; height: 1px; background: var(--accent); display: inline-block; }
+      .hero h1 {
+        font-family: 'DM Serif Display', serif;
+        font-size: clamp(3.5rem, 8vw, 7rem);
+        line-height: 1.0; letter-spacing: -0.02em;
+        margin-bottom: 1.2rem; color: var(--text);
+      }
+      .hero h1 em { font-style: italic; color: var(--accent); }
+      .hero-degree { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 1rem; }
+      .hero-role { font-size: 1rem; font-weight: 500; color: var(--accent2); margin-bottom: 1.5rem; }
+      .hero-lead { font-size: 1.15rem; font-weight: 300; color: var(--muted); max-width: 600px; line-height: 1.8; margin-bottom: 3rem; }
+      .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+      .btn {
+        display: inline-flex; align-items: center; gap: 0.5rem;
+        padding: 0.8rem 1.8rem; border-radius: 2px;
+        font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em;
+        text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+        cursor: pointer; border: none;
+      }
+      .btn-primary { background: var(--accent); color: var(--bg); }
+      .btn-primary:hover { background: #dbbf84; transform: translateY(-2px); }
+      .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+      .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+      /* STATS */
+      .stats-bar {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      }
+      .stat-item { padding: 3rem; text-align: center; position: relative; }
+      .stat-item:not(:last-child)::after {
+        content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 1px; background: var(--border);
+      }
+      .stat-number { font-family: 'DM Serif Display', serif; font-size: 3.5rem; color: var(--accent); display: block; line-height: 1; margin-bottom: 0.5rem; }
+      .stat-label { font-family: 'DM Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+
+      /* LAYOUT */
+      .container { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+      section { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+      .section-label {
+        font-family: 'DM Mono', monospace; font-size: 0.7rem;
+        letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+        margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem;
+      }
+      .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+      h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.15; margin-bottom: 1.5rem; color: var(--text); }
+
+      /* ABOUT */
+      .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+      .about-text p { font-size: 1.05rem; font-weight: 300; color: var(--muted); line-height: 1.9; margin-bottom: 1.5rem; }
+      .about-contact { background: var(--surface); border: 1px solid var(--border); padding: 2.5rem; }
+      .contact-item { display: flex; flex-direction: column; gap: 0.2rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+      .contact-item:last-child { border-bottom: none; }
+      .contact-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); }
+      .contact-value { font-size: 0.95rem; color: var(--text); }
+      .contact-value a { color: var(--accent2); text-decoration: none; transition: color 0.2s; }
+      .contact-value a:hover { color: var(--text); }
+
+      /* CHIPS */
+      .chips { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+      .chip { padding: 0.5rem 1.2rem; border: 1px solid var(--border); font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; color: var(--muted); transition: all 0.2s; cursor: default; }
+      .chip:hover { border-color: var(--accent); color: var(--accent); background: var(--glow); }
+
+      /* RESEARCH */
+      .research-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+      .research-card { background: var(--surface); padding: 2.5rem; transition: background 0.2s; }
+      .research-card:hover { background: var(--surface2); }
+      .research-number { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 1rem; display: block; }
+      .research-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 1rem; color: var(--text); }
+      .research-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.75; }
+
+      /* GALLERY */
+      .gallery-intro { font-size: 0.85rem; color: var(--muted); margin-bottom: 2.5rem; font-style: italic; }
+      .figure-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+      .figure-card { background: var(--surface); border: 1px solid var(--border); overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
+      .figure-card:hover { border-color: rgba(200,169,110,0.3); transform: translateY(-2px); }
+      .figure-img-wrap { background: #0a0b10; height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+      .figure-img-wrap img { width: 100%; height: 100%; object-fit: cover; opacity: 0.92; transform: scale(1); transform-origin: center; transition: transform 0.45s ease, opacity 0.25s ease; cursor: zoom-in; }
+      .figure-card:hover .figure-img-wrap img { opacity: 1; transform: scale(1.12); }
+      .figure-img-wrap::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(to top, rgba(0,0,0,0.24), rgba(0,0,0,0) 45%);
+      }
+      .figure-placeholder { font-family: 'DM Serif Display', serif; font-size: 4rem; color: var(--border); }
+      .figure-body { padding: 1.5rem; }
+      .figure-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
+      .figure-link { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: gap 0.2s; }
+      .figure-link:hover { gap: 0.7rem; }
+      .figure-link::after { content: '→'; }
+
+      /* TIMELINE */
+      .timeline { position: relative; padding-left: 2rem; }
+      .timeline::before { content: ''; position: absolute; left: 0; top: 0.5rem; bottom: 0.5rem; width: 1px; background: var(--border); }
+      .timeline-item { position: relative; padding: 0 0 3rem 2.5rem; }
+      .timeline-item:last-child { padding-bottom: 0; }
+      .timeline-item::before { content: ''; position: absolute; left: -0.35rem; top: 0.5rem; width: 0.7rem; height: 0.7rem; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px rgba(200,169,110,0.3); }
+      .timeline-date { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.4rem; }
+      .timeline-item h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--text); }
+      .timeline-role { font-size: 0.85rem; color: var(--accent2); margin-bottom: 0.75rem; font-weight: 500; }
+      .timeline-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+
+      /* EDUCATION */
+      .edu-grid { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+      .edu-item { background: var(--surface); padding: 2rem 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; transition: background 0.2s; }
+      .edu-item:hover { background: var(--surface2); }
+      .edu-degree { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--text); margin-bottom: 0.25rem; }
+      .edu-institution { font-size: 0.85rem; color: var(--muted); }
+      .edu-year { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--accent); text-align: right; white-space: nowrap; }
+
+      /* PUBLICATIONS */
+      .pub-list { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+      .pub-item { background: var(--surface); padding: 2rem 2.5rem; display: flex; gap: 2rem; align-items: flex-start; transition: background 0.2s; }
+      .pub-item:hover { background: var(--surface2); }
+      .pub-year { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--accent); min-width: 3rem; padding-top: 0.15rem; }
+      .pub-content { flex: 1; }
+      .pub-title { font-size: 0.95rem; font-weight: 500; color: var(--text); margin-bottom: 0.35rem; line-height: 1.5; }
+      .pub-journal { font-style: italic; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.6rem; }
+      .pub-doi { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent2); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+      .pub-doi:hover { color: var(--text); }
+      .pub-doi::after { content: '↗'; }
+
+      /* FOOTER */
+      footer { padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
+      .footer-name { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--muted); }
+      .footer-mono { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--border); letter-spacing: 0.1em; text-transform: uppercase; }
+
+      /* ANIMATIONS */
+      .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+      .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        nav { padding: 1rem 1.5rem; }
+        .nav-links { gap: 1rem; }
+        .hero { padding: 7rem 1.5rem 4rem; }
+        .container { padding: 0 1.5rem; }
+        .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+        .research-grid { grid-template-columns: 1fr; }
+        .figure-grid { grid-template-columns: 1fr; }
+        .figure-img-wrap { height: 260px; }
+        .stats-bar { grid-template-columns: 1fr; }
+        .stat-item::after { display: none; }
+        footer { flex-direction: column; gap: 1rem; text-align: center; }
+      }
+      @media (max-width: 600px) {
+        .nav-links { display: none; }
+        .edu-item { grid-template-columns: 1fr; }
+        .pub-item { flex-direction: column; gap: 0.5rem; }
+        .figure-img-wrap { height: 220px; }
+        .figure-card:hover { transform: none; }
+        .figure-card:hover .figure-img-wrap img { transform: scale(1.03); }
+      }
+    </style>
   </head>
   <body>
-    <header class="hero">
-      <nav class="top-nav">
-        <a href="#about">About</a>
-        <a href="#profile">Profile</a>
-        <a href="#research">Research</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#experience">Experience</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="hero-content">
+
+    <nav>
+      <a href="#hero" class="nav-logo">NCC / Epid</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero" id="hero">
+      <div class="hero-inner">
         <p class="eyebrow">Animal Health Epidemiology</p>
-        <h1>Nicolas Cespedes Cardenas</h1>
-        <p class="subtitle">DVM, M.Sc., PhD</p>
-        <p class="role">Research Scholar, Population Health and Pathobiology · NC State University</p>
-        <p class="lead">
-          Epidemiologist focused on transboundary diseases, network analysis,
-          and AI-driven analytics for livestock systems.
-        </p>
+        <h1>Nicolas<br><em>Cespedes</em><br>Cardenas</h1>
+        <p class="hero-degree">DVM · M.Sc. · PhD</p>
+        <p class="hero-role">Research Scholar, Population Health & Pathobiology · NC State University</p>
+        <p class="hero-lead">Epidemiologist specializing in transboundary disease modeling, livestock network analysis, and AI-driven analytics for animal health systems.</p>
+        <div class="hero-cta">
+          <a href="#research" class="btn btn-primary">View Research</a>
+          <a href="#publications" class="btn btn-ghost">Publications</a>
+          <a href="mailto:ncesped@ncsu.edu" class="btn btn-ghost">Contact</a>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section id="about" class="card">
-        <h2>About</h2>
-        <p>
-          Nicolas is a dedicated and highly qualified epidemiologist with a
-          strong academic background and a wealth of practical experience in
-          transboundary epidemiology and data science, making him an ideal
-          candidate for the industry. With a Ph.D. in Epidemiology, Nicolas
-          has honed his skills in data analysis, disease modeling, geospatial
-          analysis, statistics, and research. He excels in developing
-          innovative solutions by programming tools, a valuable asset for
-          organizations aiming to drive advancements. His extensive training,
-          international experience, and expertise in diverse aspects of
-          epidemiology, data science, and biostatistics make him a versatile
-          and effective professional, well-prepared to address complex
-          challenges in the field. Additionally, he is a nature outdoor
-          enthusiast and is adept at keeping a fitness-oriented lifestyle.
-        </p>
-        <ul class="stats">
-          <li><strong>20+</strong><span>Peer-reviewed papers</span></li>
-          <li><strong>$3.16M+</strong><span>Research funding involved</span></li>
-          <li><strong>10+</strong><span>International workshops delivered</span></li>
-        </ul>
-      </section>
+    <div class="stats-bar">
+      <div class="stat-item fade-in">
+        <span class="stat-number">20+</span>
+        <span class="stat-label">Peer-Reviewed Papers</span>
+      </div>
+      <div class="stat-item fade-in">
+        <span class="stat-number">$3.16M</span>
+        <span class="stat-label">Research Funding Involved</span>
+      </div>
+      <div class="stat-item fade-in">
+        <span class="stat-number">10+</span>
+        <span class="stat-label">International Workshops</span>
+      </div>
+    </div>
 
-      <section id="profile" class="card">
-        <h2>Professional Profile</h2>
-        <ul class="list contact-list">
-          <li><strong>Current Role:</strong> Research Scholar, Population Health and Pathobiology</li>
-          <li><strong>Institution:</strong> College of Veterinary Medicine, NC State University</li>
-          <li><strong>Pronouns:</strong> he/him/his</li>
-          <li><strong>Email:</strong> <a href="mailto:ncesped@ncsu.edu">ncesped@ncsu.edu</a></li>
-          <li><strong>Group:</strong> NC State Affiliate Members: Infectious Diseases</li>
-          <li>
-            <strong>Official Profile:</strong>
-            <a href="https://provost.ncsu.edu/global-one-health-academy/people/nicolas-cespedes-cardenas/" target="_blank" rel="noreferrer">
-              Global One Health Academy
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      <section id="expertise" class="card">
-        <h2>Core Expertise</h2>
-        <div class="chips">
-          <span>Biostatistics</span>
-          <span>Epidemiological Modeling</span>
-          <span>Network Analysis</span>
-          <span>GIS & Spatial Analysis</span>
-          <span>Risk Assessment</span>
-          <span>R (Shiny, Package Dev)</span>
-          <span>Python</span>
-          <span>Outbreak Investigation</span>
-        </div>
-      </section>
-
-      <section id="research" class="card">
-        <h2>Main Research</h2>
-        <div class="research-grid">
-          <article class="research-item">
-            <h3>1. Multispecies Disease Modeling</h3>
-            <p>
-              Builds stochastic and compartmental models for diseases such as
-              foot-and-mouth disease, explicitly representing species-specific
-              transmission and farm-level dynamics.
-            </p>
-          </article>
-          <article class="research-item">
-            <h3>2. Livestock Movement Networks</h3>
-            <p>
-              Uses network science to map between-farm animal movements, detect
-              high-impact nodes, and estimate epidemic pathways in production
-              systems.
-            </p>
-          </article>
-          <article class="research-item">
-            <h3>3. Control Strategy Evaluation</h3>
-            <p>
-              Compares interventions such as depopulation, vaccination, and
-              targeted movement restrictions to support rapid, evidence-based
-              outbreak response policies.
-            </p>
-          </article>
-          <article class="research-item">
-            <h3>4. GIS and Spatial Analysis</h3>
-            <p>
-              Applies geospatial methods to identify disease clusters,
-              characterize regional risk patterns, and support surveillance and
-              preparedness planning across livestock systems.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section id="gallery" class="card">
-        <h2>Open-Access Publication Figures</h2>
-        <p class="muted small">
-          Figures below are from open-access publications where Nicolas C.
-          Cardenas is author/co-author.
-        </p>
-        <div class="figure-grid">
-          <figure class="photo-card">
-            <img
-              src="https://www.frontiersin.org/files/Articles/1468864/xml-images/fvets-11-1468864-g001.webp"
-              alt="Figure from Frontiers 2024 showing FMD transmission modeling framework"
-              loading="lazy"
-            />
-            <figcaption>
-              Modeling foot-and-mouth disease dissemination in Rio Grande do Sul, Brazil and evaluating the effectiveness of control measures.
-            </figcaption>
-            <a
-              class="figure-source"
-              href="https://doi.org/10.3389/fvets.2024.1468864"
-              target="_blank"
-              rel="noreferrer"
-              >Source article</a
-            >
-          </figure>
-          <figure class="photo-card">
-            <img
-              src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1186%2Fs13567-022-01031-2/MediaObjects/13567_2022_1031_Fig1_HTML.png"
-              alt="Figure from Veterinary Research 2022 showing within- and between-farm state transitions"
-              loading="lazy"
-            />
-            <figcaption>
-              Figure 1, within-farm and between-farm transmission transitions
-              (Veterinary Research, 2022).
-            </figcaption>
-            <a
-              class="figure-source"
-              href="https://doi.org/10.1186/s13567-022-01031-2"
-              target="_blank"
-              rel="noreferrer"
-              >Source article</a
-            >
-          </figure>
-          <figure class="photo-card">
-            <img
-              src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1186%2Fs13567-022-01031-2/MediaObjects/13567_2022_1031_Fig7_HTML.png"
-              alt="Figure from Veterinary Research 2022 showing simulated secondary infected farms over time"
-              loading="lazy"
-            />
-            <figcaption>
-              Multiple species animal movements: network properties, disease dynamics and the impact of targeted control actions
-              (Veterinary Research, 2022).
-            </figcaption>
-            <a
-              class="figure-source"
-              href="https://doi.org/10.1186/s13567-022-01031-2"
-              target="_blank"
-              rel="noreferrer"
-              >Source article</a
-            >
-          </figure>
-          <figure class="photo-card">
-            <div class="figure-placeholder" aria-hidden="true">
-              2025
+    <section id="about">
+      <div class="container">
+        <p class="section-label">About</p>
+        <div class="about-grid">
+          <div class="about-text fade-in">
+            <h2>Turning complex disease data into actionable insights</h2>
+            <p>A dedicated epidemiologist with a strong academic foundation and extensive practical experience in transboundary epidemiology and data science. With a Ph.D. in Epidemiology, Nicolas has developed deep expertise in data analysis, disease modeling, geospatial analysis, and biostatistics.</p>
+            <p>His work bridges mathematical modeling and real-world policy, helping governments and organizations build rapid, evidence-based responses to disease outbreaks. An international profile spanning Colombia, Brazil, Spain, and the United States underscores his commitment to global animal health.</p>
+            <div class="chips">
+              <span class="chip">Biostatistics</span>
+              <span class="chip">Epidemiological Modeling</span>
+              <span class="chip">Network Analysis</span>
+              <span class="chip">GIS & Spatial Analysis</span>
+              <span class="chip">Risk Assessment</span>
+              <span class="chip">R / Shiny</span>
+              <span class="chip">Python</span>
+              <span class="chip">Outbreak Investigation</span>
+              <span class="chip">Stochastic Models</span>
+              <span class="chip">One Health</span>
             </div>
-            <figcaption>
-              integrating epidemiological and
-              economic models to estimate FMD outbreak costs in Brazil. This
-              article is currently listed as copyright Elsevier, so no
-              open-access figure is embedded here.
-            </figcaption>
-            <a
-              class="figure-source"
-              href="https://doi.org/10.1016/j.prevetmed.2025.106558"
-              target="_blank"
-              rel="noreferrer"
-              >Source article</a
-            >
-          </figure>
+          </div>
+          <div class="about-contact fade-in">
+            <div class="contact-item">
+              <span class="contact-label">Current Role</span>
+              <span class="contact-value">Research Scholar, Population Health and Pathobiology</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Institution</span>
+              <span class="contact-value">College of Veterinary Medicine, NC State University</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Email</span>
+              <span class="contact-value"><a href="mailto:ncesped@ncsu.edu">ncesped@ncsu.edu</a></span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Group</span>
+              <span class="contact-value">NC State Affiliate Members: Infectious Diseases</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Official Profile</span>
+              <span class="contact-value"><a href="https://provost.ncsu.edu/global-one-health-academy/people/nicolas-cespedes-cardenas/" target="_blank" rel="noreferrer">Global One Health Academy ↗</a></span>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="experience" class="card">
-        <h2>Experience</h2>
-        <article class="timeline-item">
-          <h3>North Carolina State University, Raleigh, NC</h3>
-          <p class="muted">Associate Researcher | Nov 2023 - Present</p>
-          <p>
-            Leads data-driven epidemiological projects, mentors students and
-            analysts, develops R-based outbreak tools, and contributes to grant
-            and manuscript production.
-          </p>
-        </article>
-        <article class="timeline-item">
-          <h3>North Carolina State University, Raleigh, NC</h3>
-          <p class="muted">Post-Doctoral Associate | Feb 2021 - Nov 2023</p>
-          <p>
-            Built mathematical models for cross-species transmission and
-            delivered technical workshops for outbreak response in Latin
-            America.
-          </p>
-        </article>
-        <article class="timeline-item">
-          <h3>International Research Training</h3>
-          <p class="muted">2013 - 2020</p>
-          <p>
-            Fellowship and training at Universidad Complutense Madrid
-            (VISAVET), University of Minnesota (STEMMA), and University of Sao
-            Paulo.
-          </p>
-        </article>
-      </section>
+    <section id="research">
+      <div class="container">
+        <p class="section-label">Research</p>
+        <h2>Main Research Areas</h2>
+        <div class="research-grid fade-in">
+          <article class="research-card">
+            <span class="research-number">01 / Research</span>
+            <h3>Multispecies Disease Modeling</h3>
+            <p>Builds stochastic and compartmental models for diseases such as foot-and-mouth disease, explicitly representing species-specific transmission and farm-level dynamics across large production landscapes.</p>
+          </article>
+          <article class="research-card">
+            <span class="research-number">02 / Research</span>
+            <h3>Livestock Movement Networks</h3>
+            <p>Uses network science to map between-farm animal movements, detect high-impact nodes, and estimate epidemic pathways in complex multi-species production systems.</p>
+          </article>
+          <article class="research-card">
+            <span class="research-number">03 / Research</span>
+            <h3>Control Strategy Evaluation</h3>
+            <p>Compares interventions — depopulation, vaccination, targeted movement restrictions — to support rapid, evidence-based outbreak response policies and contingency planning.</p>
+          </article>
+          <article class="research-card">
+            <span class="research-number">04 / Research</span>
+            <h3>GIS & Spatial Analysis</h3>
+            <p>Applies geospatial methods to identify disease clusters, characterize regional risk patterns, and support surveillance and preparedness planning across national livestock systems.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <section id="education" class="card">
-        <h2>Education</h2>
-        <ul class="list">
-          <li>PhD, Experimental Epidemiology Applied to Zoonoses (2016 - 2020), University of Sao Paulo</li>
-          <li>MSc, Experimental Epidemiology Applied to Zoonoses (2014 - 2015), University of Sao Paulo</li>
-          <li>DVM, National University of Colombia (2007 - 2013)</li>
-        </ul>
-      </section>
+    <section id="gallery">
+      <div class="container">
+        <p class="section-label">Gallery</p>
+        <h2>Open-Access Publication Figures</h2>
+        <p class="gallery-intro">Figures from open-access publications where Nicolas Cespedes Cardenas is author or co-author.</p>
+        <div class="figure-grid">
+          <div class="figure-card fade-in">
+            <div class="figure-img-wrap">
+              <img src="https://www.frontiersin.org/files/Articles/1468864/xml-images/fvets-11-1468864-g001.webp" alt="FMD transmission modeling framework" loading="lazy" />
+            </div>
+            <div class="figure-body">
+              <p>Modeling foot-and-mouth disease dissemination in Rio Grande do Sul, Brazil and evaluating the effectiveness of control measures.</p>
+              <a href="https://doi.org/10.3389/fvets.2024.1468864" class="figure-link" target="_blank" rel="noreferrer">Source article</a>
+            </div>
+          </div>
+          <div class="figure-card fade-in">
+            <div class="figure-img-wrap">
+              <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1186%2Fs13567-022-01031-2/MediaObjects/13567_2022_1031_Fig1_HTML.png" alt="Within- and between-farm state transitions" loading="lazy" />
+            </div>
+            <div class="figure-body">
+              <p>Within-farm and between-farm transmission transitions — Multiple species animal movements (Veterinary Research, 2022).</p>
+              <a href="https://doi.org/10.1186/s13567-022-01031-2" class="figure-link" target="_blank" rel="noreferrer">Source article</a>
+            </div>
+          </div>
+          <div class="figure-card fade-in">
+            <div class="figure-img-wrap">
+              <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1186%2Fs13567-022-01031-2/MediaObjects/13567_2022_1031_Fig7_HTML.png" alt="Simulated secondary infected farms" loading="lazy" />
+            </div>
+            <div class="figure-body">
+              <p>Network properties, disease dynamics and the impact of targeted control actions on simulated secondary infected farms (Veterinary Research, 2022).</p>
+              <a href="https://doi.org/10.1186/s13567-022-01031-2" class="figure-link" target="_blank" rel="noreferrer">Source article</a>
+            </div>
+          </div>
+          <div class="figure-card fade-in">
+            <div class="figure-img-wrap">
+              <div class="figure-placeholder">2025</div>
+            </div>
+            <div class="figure-body">
+              <p>Integrating epidemiological and economic models to estimate FMD outbreak costs in Brazil. Figure copyright Elsevier — not embedded here.</p>
+              <a href="https://doi.org/10.1016/j.prevetmed.2025.106558" class="figure-link" target="_blank" rel="noreferrer">Source article</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <section id="publications" class="card">
+    <section id="experience">
+      <div class="container">
+        <p class="section-label">Experience</p>
+        <h2>Professional Experience</h2>
+        <div class="timeline fade-in">
+          <div class="timeline-item">
+            <p class="timeline-date">Nov 2023 – Present</p>
+            <h3>North Carolina State University</h3>
+            <p class="timeline-role">Research Scholar (Associate Researcher) · Raleigh, NC</p>
+            <p>Leads data-driven epidemiological projects, mentors students and analysts, develops R-based outbreak tools, and contributes to grant and manuscript production.</p>
+          </div>
+          <div class="timeline-item">
+            <p class="timeline-date">Feb 2021 – Nov 2023</p>
+            <h3>North Carolina State University</h3>
+            <p class="timeline-role">Post-Doctoral Associate · Raleigh, NC</p>
+            <p>Built mathematical models for cross-species transmission and delivered technical workshops for outbreak response training in Latin America.</p>
+          </div>
+          <div class="timeline-item">
+            <p class="timeline-date">2013 – 2020</p>
+            <h3>International Research Training</h3>
+            <p class="timeline-role">Fellowship & Training · Europe / Americas</p>
+            <p>Fellowship and research training at Universidad Complutense Madrid (VISAVET), University of Minnesota (STEMMA), and University of São Paulo — building a truly international epidemiological perspective.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <p class="section-label">Education</p>
+        <h2>Academic Formation</h2>
+        <div class="edu-grid fade-in">
+          <div class="edu-item">
+            <div>
+              <div class="edu-degree">PhD, Experimental Epidemiology Applied to Zoonoses</div>
+              <div class="edu-institution">University of São Paulo</div>
+            </div>
+            <div class="edu-year">2016 – 2020</div>
+          </div>
+          <div class="edu-item">
+            <div>
+              <div class="edu-degree">M.Sc., Experimental Epidemiology Applied to Zoonoses</div>
+              <div class="edu-institution">University of São Paulo</div>
+            </div>
+            <div class="edu-year">2014 – 2015</div>
+          </div>
+          <div class="edu-item">
+            <div>
+              <div class="edu-degree">Doctor of Veterinary Medicine (DVM)</div>
+              <div class="edu-institution">National University of Colombia</div>
+            </div>
+            <div class="edu-year">2007 – 2013</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <p class="section-label">Publications</p>
         <h2>Selected Publications</h2>
-        <ul class="list">
-          <li>
-            Cardenas NC et al. (2025). Integrating epidemiological and economic
-            models to estimate the cost of simulated foot-and-mouth disease
-            outbreaks in Brazil. <em>Preventive Veterinary Medicine</em>.
-            <a href="https://doi.org/10.1016/j.prevetmed.2025.106558" target="_blank" rel="noreferrer">DOI</a>
-          </li>
-          <li>
-            Cardenas NC et al. (2024). Modeling foot-and-mouth disease
-            dissemination in Rio Grande do Sul, Brazil and evaluating the
-            effectiveness of control measures. <em>Frontiers in Veterinary Science</em>.
-            <a href="https://doi.org/10.3389/fvets.2024.1468864" target="_blank" rel="noreferrer">DOI</a>
-          </li>
-          <li>
-            Cardenas NC et al. (2024). Analyzing the intrastate and interstate
-            swine movement network in the United States.
-            <em>Preventive Veterinary Medicine</em>.
-            <a href="https://doi.org/10.1016/j.prevetmed.2024.106264" target="_blank" rel="noreferrer">DOI</a>
-          </li>
-          <li>
-            Cardenas NC et al. (2022). Multiple species animal movements:
-            Network properties, disease dynamics, and the impact of targeted
-            control actions. <em>Veterinary Research</em>.
-            <a href="https://doi.org/10.1186/s13567-022-01031-2" target="_blank" rel="noreferrer">DOI</a>
-          </li>
-        </ul>
-        <p class="muted small">
-          Full publication list available on request.
-        </p>
-      </section>
+        <div class="pub-list fade-in">
+          <div class="pub-item">
+            <span class="pub-year">2025</span>
+            <div class="pub-content">
+              <div class="pub-title">Integrating epidemiological and economic models to estimate the cost of simulated foot-and-mouth disease outbreaks in Brazil.</div>
+              <div class="pub-journal">Preventive Veterinary Medicine · Cardenas NC et al.</div>
+              <a href="https://doi.org/10.1016/j.prevetmed.2025.106558" class="pub-doi" target="_blank" rel="noreferrer">10.1016/j.prevetmed.2025.106558</a>
+            </div>
+          </div>
+          <div class="pub-item">
+            <span class="pub-year">2024</span>
+            <div class="pub-content">
+              <div class="pub-title">Modeling foot-and-mouth disease dissemination in Rio Grande do Sul, Brazil and evaluating the effectiveness of control measures.</div>
+              <div class="pub-journal">Frontiers in Veterinary Science · Cardenas NC et al.</div>
+              <a href="https://doi.org/10.3389/fvets.2024.1468864" class="pub-doi" target="_blank" rel="noreferrer">10.3389/fvets.2024.1468864</a>
+            </div>
+          </div>
+          <div class="pub-item">
+            <span class="pub-year">2024</span>
+            <div class="pub-content">
+              <div class="pub-title">Analyzing the intrastate and interstate swine movement network in the United States.</div>
+              <div class="pub-journal">Preventive Veterinary Medicine · Cardenas NC et al.</div>
+              <a href="https://doi.org/10.1016/j.prevetmed.2024.106264" class="pub-doi" target="_blank" rel="noreferrer">10.1016/j.prevetmed.2024.106264</a>
+            </div>
+          </div>
+          <div class="pub-item">
+            <span class="pub-year">2022</span>
+            <div class="pub-content">
+              <div class="pub-title">Multiple species animal movements: Network properties, disease dynamics, and the impact of targeted control actions.</div>
+              <div class="pub-journal">Veterinary Research · Cardenas NC et al.</div>
+              <a href="https://doi.org/10.1186/s13567-022-01031-2" class="pub-doi" target="_blank" rel="noreferrer">10.1186/s13567-022-01031-2</a>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:1.5rem; font-size:0.82rem; color:var(--muted); font-style:italic;">Full publication list available on request.</p>
+      </div>
+    </section>
 
-      <section id="contact" class="card">
-        <h2>Public Contact</h2>
-        <ul class="list contact-list">
-          <li>Email: <a href="mailto:ncesped@ncsu.edu">ncesped@ncsu.edu</a></li>
-          <li>College of Veterinary Medicine, NC State University</li>
-          <li>
-            NC State Global One Health Academy profile:
-            <a href="https://provost.ncsu.edu/global-one-health-academy/people/nicolas-cespedes-cardenas/" target="_blank" rel="noreferrer">
-              View profile
-            </a>
-          </li>
-        </ul>
-      </section>
-    </main>
+    <section id="contact">
+      <div class="container">
+        <p class="section-label">Contact</p>
+        <h2>Get in Touch</h2>
+        <div class="about-contact fade-in" style="max-width:480px;">
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <span class="contact-value"><a href="mailto:ncesped@ncsu.edu">ncesped@ncsu.edu</a></span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Institution</span>
+            <span class="contact-value">College of Veterinary Medicine, NC State University</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Official Profile</span>
+            <span class="contact-value"><a href="https://provost.ncsu.edu/global-one-health-academy/people/nicolas-cespedes-cardenas/" target="_blank" rel="noreferrer">NC State Global One Health Academy ↗</a></span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <footer>
-      <p>© <span id="year"></span> Nicolas Cespedes Cardenas</p>
+      <span class="footer-name">Nicolas Cespedes Cardenas</span>
+      <span class="footer-mono">© <span id="year"></span> · DVM · M.Sc. · PhD</span>
     </footer>
 
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 80);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
   </body>
 </html>
