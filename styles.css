@@ -1,0 +1,274 @@
+:root {
+  --bg: #f5efe6;
+  --ink: #142433;
+  --accent: #05668d;
+  --accent-2: #00a896;
+  --card: #fffdfa;
+  --line: #d4c9bb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, #ffe8c2 0, transparent 26%),
+    radial-gradient(circle at 90% 20%, #cbe8ff 0, transparent 30%),
+    linear-gradient(180deg, #fbf6ef, var(--bg));
+  line-height: 1.6;
+}
+
+.hero {
+  padding: 1.5rem 1rem 4rem;
+}
+
+.top-nav {
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.hero-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin: 0.3rem 0 1rem;
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  color: #314a5f;
+}
+
+.role {
+  margin: -0.4rem 0 1rem;
+  font-weight: 700;
+  color: #1f4d68;
+}
+
+.lead {
+  max-width: 680px;
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 2px solid transparent;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn.ghost {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: 0 10px 30px rgba(20, 36, 51, 0.05);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.35rem;
+}
+
+h3 {
+  margin-bottom: 0.2rem;
+}
+
+.muted {
+  color: #5c7388;
+}
+
+.small {
+  font-size: 0.92rem;
+}
+
+.stats {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+.stats li {
+  background: #f4fafc;
+  border: 1px solid #d6e8f0;
+  border-radius: 12px;
+  padding: 0.7rem;
+}
+
+.stats strong {
+  display: block;
+  font-size: 1.4rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.chips span {
+  background: #f6fffd;
+  color: #0a5a52;
+  border: 1px solid #bfe6e0;
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.research-item {
+  border: 1px solid #d6e8f0;
+  border-radius: 12px;
+  padding: 0.8rem;
+  background: #f4fafc;
+}
+
+.research-item h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.research-item p {
+  margin-bottom: 0;
+}
+
+.figure-grid {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.photo-card {
+  margin: 0;
+  background: #fcf9f4;
+  border: 1px solid #dfd3c4;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.photo-card figcaption {
+  padding: 0.7rem 0.8rem 0.8rem;
+  font-size: 0.92rem;
+  color: #415a6f;
+}
+
+.figure-placeholder {
+  height: 190px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #1f4d68;
+  background:
+    radial-gradient(circle at 20% 20%, #d6ebf8 0, transparent 38%),
+    linear-gradient(135deg, #eef7ff 0%, #e8f4ef 100%);
+}
+
+.figure-source {
+  display: inline-block;
+  margin: 0 0.8rem 0.85rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.timeline-item + .timeline-item {
+  border-top: 1px solid var(--line);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 680px) {
+  .top-nav {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
