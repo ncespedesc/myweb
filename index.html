@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nicolas Cespedes Cardenas | Epidemiology & Data Science</title>
-    <meta name="description" content="Professional profile of Nicolas Cespedes Cardenas, DVM, M.Sc., PhD. Epidemiology, disease modeling, and data science for animal health." />
+    <meta name="description" content="Professional profile of Nicolas Cardenas, DVM, M.Sc., PhD. Epidemiology, disease modeling, and data science for animal health." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
@@ -220,6 +220,60 @@
       .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
       .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+      /* RESEARCH × PUBLICATIONS */
+      .rp-intro { font-size: 0.9rem; color: var(--muted); margin-bottom: 2.5rem; font-weight: 300; line-height: 1.8; }
+      .rp-grid { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+      .rp-block { background: var(--surface); }
+      .rp-head {
+        padding: 1.8rem 2.5rem; display: flex; align-items: center; gap: 1.5rem;
+        border-bottom: 1px solid var(--border);
+        background: rgba(200,169,110,0.03);
+        cursor: default;
+      }
+      .rp-head-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent); letter-spacing: 0.2em; min-width: 2.5rem; }
+      .rp-head h3 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; font-weight: 400; color: var(--text); margin: 0; }
+      .rp-count { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); margin-left: auto; letter-spacing: 0.1em; }
+      .rp-papers { }
+      .rp-paper-row {
+        display: grid; grid-template-columns: 3rem 1fr auto;
+        gap: 1.5rem; align-items: baseline;
+        padding: 1.1rem 2.5rem;
+        border-bottom: 1px solid var(--border);
+        transition: background 0.2s;
+        text-decoration: none; color: inherit;
+      }
+      .rp-paper-row:last-child { border-bottom: none; }
+      .rp-paper-row:hover { background: var(--surface2); }
+      .rp-year { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--accent); white-space: nowrap; padding-top: 0.1rem; }
+      .rp-info { }
+      .rp-title { font-size: 0.9rem; font-weight: 500; color: var(--text); line-height: 1.5; margin-bottom: 0.2rem; }
+      .rp-journal { font-size: 0.78rem; font-style: italic; color: var(--muted); }
+      .rp-badge {
+        font-family: 'DM Mono', monospace; font-size: 0.58rem; padding: 0.2rem 0.55rem;
+        border: 1px solid; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
+        align-self: start; margin-top: 0.15rem;
+      }
+      .badge-journal { color: var(--muted); border-color: var(--border); }
+      .badge-preprint { color: #f0a050; border-color: rgba(240,160,80,0.4); background: rgba(240,160,80,0.05); }
+      .badge-book { color: var(--accent2); border-color: rgba(74,158,255,0.4); background: rgba(74,158,255,0.05); }
+      .badge-conf { color: #a0d8a0; border-color: rgba(160,216,160,0.4); background: rgba(160,216,160,0.04); }
+
+      /* PUB TAGS */
+      .pub-tag {
+        display: inline-block;
+        font-family: 'DM Mono', monospace; font-size: 0.6rem; padding: 0.15rem 0.5rem;
+        border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.08em;
+        text-transform: uppercase; margin-right: 0.4rem; margin-bottom: 0.4rem;
+      }
+      .tag-modeling { border-color: rgba(200,169,110,0.35); color: #c8a96e; background: rgba(200,169,110,0.05); }
+      .tag-networks { border-color: rgba(74,158,255,0.35); color: #4a9eff; background: rgba(74,158,255,0.05); }
+      .tag-control { border-color: rgba(160,216,160,0.35); color: #a0d8a0; background: rgba(160,216,160,0.04); }
+      .tag-gis { border-color: rgba(180,130,220,0.35); color: #c090e0; background: rgba(180,130,220,0.04); }
+
+      /* RP ILLUSTRATIONS */
+      .rp-illustration { height: 190px; overflow: hidden; border-bottom: 1px solid var(--border); background: #12151d; }
+      .rp-illustration svg { width: 100%; height: 100%; display: block; }
+
       /* RESPONSIVE */
       @media (max-width: 900px) {
         nav { padding: 1rem 1.5rem; }
@@ -238,6 +292,10 @@
         .nav-links { display: none; }
         .edu-item { grid-template-columns: 1fr; }
         .pub-item { flex-direction: column; gap: 0.5rem; }
+        .rp-paper-row { grid-template-columns: 2.5rem 1fr; }
+        .rp-badge { display: none; }
+        .rp-head { flex-wrap: wrap; }
+        .rp-count { margin-left: 0; }
         .figure-img-wrap { height: 220px; }
         .figure-card:hover { transform: none; }
         .figure-card:hover .figure-img-wrap img { transform: scale(1.03); }
@@ -253,7 +311,7 @@
         <li><a href="#research">Research</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#publications">Publications</a></li>
+        <li><a href="#research-impact">Publications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -261,7 +319,7 @@
     <section class="hero" id="hero">
       <div class="hero-inner">
         <p class="eyebrow">Animal Health Epidemiology</p>
-        <h1>Nicolas<br><em>Cespedes</em><br>Cardenas</h1>
+        <h1>Nicolas<br><em>Cardenas</em><br></h1>
         <p class="hero-degree">DVM · M.Sc. · PhD</p>
         <p class="hero-role">Research Scholar, Population Health & Pathobiology · NC State University</p>
         <p class="hero-lead">Epidemiologist specializing in transboundary disease modeling, livestock network analysis, and AI-driven analytics for animal health systems.</p>
@@ -364,11 +422,463 @@
       </div>
     </section>
 
+    <section id="research-impact">
+      <div class="container">
+        <p class="section-label">Research × Publications</p>
+        <h2>Research Areas & Key Papers</h2>
+        <p class="rp-intro">Each main research area linked to its contributing peer-reviewed publications, book chapters, and preprints.</p>
+        <div class="rp-grid fade-in">
+
+          <!-- 01 — Multispecies Disease Modeling -->
+          <div class="rp-block">
+            <div class="rp-illustration">
+              <!-- Multi-species epidemic curves -->
+              <svg viewBox="0 0 800 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <rect width="800" height="190" fill="#12151d"/>
+                <!-- Grid -->
+                <line x1="0" y1="48" x2="800" y2="48" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="0" y1="96" x2="800" y2="96" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="0" y1="144" x2="800" y2="144" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="200" y1="0" x2="200" y2="190" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                <line x1="400" y1="0" x2="400" y2="190" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                <line x1="600" y1="0" x2="600" y2="190" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                <!-- Axes -->
+                <line x1="35" y1="12" x2="35" y2="172" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <line x1="35" y1="172" x2="775" y2="172" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <!-- Axis labels -->
+                <text x="40" y="184" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.18)">Day 0</text>
+                <text x="680" y="184" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.18)">Day 180</text>
+                <text x="8" y="96" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.18)" transform="rotate(-90,12,96)">Infected</text>
+                <!-- Cattle I curve (gold) — broad bell -->
+                <path d="M45,170 C90,170 140,158 200,128 C255,100 285,72 330,45 C365,24 400,18 430,22 C475,30 520,58 580,108 C630,146 680,165 755,170" fill="none" stroke="#c8a96e" stroke-width="2.5"/>
+                <!-- Swine I curve (blue) — sharper, earlier peak -->
+                <path d="M45,170 C110,170 165,155 230,115 C280,84 310,60 350,46 C378,36 408,40 445,55 C500,78 555,118 640,152 C690,168 740,171 755,171" fill="none" stroke="#4a9eff" stroke-width="2" stroke-dasharray="7,3"/>
+                <!-- Small ruminants (green) — later, lower -->
+                <path d="M45,171 C130,171 210,168 310,158 C375,150 415,136 460,118 C500,102 535,94 565,98 C620,110 678,142 755,165" fill="none" stroke="#a0d8a0" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.75"/>
+                <!-- Legend -->
+                <rect x="560" y="14" width="210" height="60" fill="rgba(18,21,29,0.7)" rx="2"/>
+                <line x1="572" y1="28" x2="594" y2="28" stroke="#c8a96e" stroke-width="2.5"/>
+                <text x="600" y="32" font-family="monospace" font-size="9" fill="#c8a96e">Cattle</text>
+                <line x1="572" y1="44" x2="594" y2="44" stroke="#4a9eff" stroke-width="2" stroke-dasharray="5,2"/>
+                <text x="600" y="48" font-family="monospace" font-size="9" fill="#4a9eff">Swine</text>
+                <line x1="572" y1="60" x2="594" y2="60" stroke="#a0d8a0" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.75"/>
+                <text x="600" y="64" font-family="monospace" font-size="9" fill="#a0d8a0" opacity="0.75">Small ruminants</text>
+              </svg>
+            </div>
+            <div class="rp-head">
+              <span class="rp-head-num">01</span>
+              <h3>Multispecies Disease Modeling</h3>
+              <span class="rp-count">7 works</span>
+            </div>
+            <div class="rp-papers">
+              <a href="https://doi.org/10.48550/arXiv.2603.06694" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2026</span>
+                <div class="rp-info">
+                  <div class="rp-title">A modelling assessment of the impact of control measures on simulated foot-and-mouth disease spread in Mato Grosso do Sul, Brazil.</div>
+                  <div class="rp-journal">arXiv · Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-preprint">Preprint</span>
+              </a>
+              <a href="https://doi.org/10.1155/tbed/9055612" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2025</span>
+                <div class="rp-info">
+                  <div class="rp-title">Foot-and-Mouth Disease in Bolivia: Simulation-Based Assessment of Control Strategies and Vaccination Requirements.</div>
+                  <div class="rp-journal">Transboundary and Emerging Diseases · Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.1590/0103-8478cr20240540" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2025</span>
+                <div class="rp-info">
+                  <div class="rp-title">Assessing epidemiological parameters and dissemination characteristics of the 2000 and 2001 FMD outbreaks in Rio Grande do Sul, Brazil.</div>
+                  <div class="rp-journal">Ciência Rural · Costa MN, Corbellini LG, Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.1016/j.prevetmed.2025.106558" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2025</span>
+                <div class="rp-info">
+                  <div class="rp-title">Integrating epidemiological and economic models to estimate the cost of simulated foot-and-mouth disease outbreaks in Brazil.</div>
+                  <div class="rp-journal">Preventive Veterinary Medicine · Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.3389/fvets.2024.1468864" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2024</span>
+                <div class="rp-info">
+                  <div class="rp-title">Modeling foot-and-mouth disease dissemination in Rio Grande do Sul, Brazil and evaluating the effectiveness of control measures.</div>
+                  <div class="rp-journal">Frontiers in Veterinary Science · Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.5220/0012742700003690" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2024</span>
+                <div class="rp-info">
+                  <div class="rp-title">A Distributed Processing Architecture for Disease Spread Analysis in the PDSA-RS Platform.</div>
+                  <div class="rp-journal">ICEIS 2024 · Ebling D, Machado F, Descovi G, Cardenas N et al.</div>
+                </div>
+                <span class="rp-badge badge-conf">Conf.</span>
+              </a>
+              <a href="https://doi.org/10.3389/fvets.2023.1158306" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2023</span>
+                <div class="rp-info">
+                  <div class="rp-title">Spatiotemporal relative risk distribution of porcine reproductive and respiratory syndrome virus in the United States.</div>
+                  <div class="rp-journal">Frontiers in Veterinary Science · Sanchez F, Galvis JA, Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 02 — Livestock Movement Networks -->
+          <div class="rp-block">
+            <div class="rp-illustration">
+              <!-- Livestock movement network graph -->
+              <svg viewBox="0 0 800 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <rect width="800" height="190" fill="#12151d"/>
+                <!-- Edges cluster 1 -->
+                <line x1="75" y1="95" x2="125" y2="42" stroke="rgba(200,169,110,0.18)" stroke-width="1"/>
+                <line x1="75" y1="95" x2="145" y2="148" stroke="rgba(200,169,110,0.18)" stroke-width="1"/>
+                <line x1="75" y1="95" x2="195" y2="90" stroke="rgba(200,169,110,0.32)" stroke-width="1.5"/>
+                <line x1="125" y1="42" x2="195" y2="90" stroke="rgba(200,169,110,0.2)" stroke-width="1"/>
+                <line x1="145" y1="148" x2="195" y2="90" stroke="rgba(200,169,110,0.22)" stroke-width="1"/>
+                <line x1="145" y1="148" x2="125" y2="42" stroke="rgba(200,169,110,0.1)" stroke-width="1"/>
+                <!-- Edges inter 1–2 (dashed = long-distance trades) -->
+                <line x1="195" y1="90" x2="295" y2="55" stroke="rgba(200,169,110,0.18)" stroke-width="1" stroke-dasharray="5,3"/>
+                <line x1="195" y1="90" x2="375" y2="88" stroke="rgba(200,169,110,0.28)" stroke-width="1.5" stroke-dasharray="5,3"/>
+                <!-- Edges cluster 2 -->
+                <line x1="295" y1="55" x2="375" y2="88" stroke="rgba(74,158,255,0.28)" stroke-width="1.5"/>
+                <line x1="325" y1="145" x2="375" y2="88" stroke="rgba(74,158,255,0.22)" stroke-width="1"/>
+                <line x1="295" y1="55" x2="325" y2="145" stroke="rgba(74,158,255,0.16)" stroke-width="1"/>
+                <line x1="240" y1="168" x2="325" y2="145" stroke="rgba(74,158,255,0.14)" stroke-width="1"/>
+                <line x1="240" y1="168" x2="195" y2="90" stroke="rgba(74,158,255,0.12)" stroke-width="1" stroke-dasharray="5,3"/>
+                <!-- Edges inter 2–3 -->
+                <line x1="375" y1="88" x2="465" y2="48" stroke="rgba(74,158,255,0.18)" stroke-width="1" stroke-dasharray="5,3"/>
+                <line x1="375" y1="88" x2="545" y2="78" stroke="rgba(74,158,255,0.3)" stroke-width="1.5" stroke-dasharray="5,3"/>
+                <line x1="325" y1="145" x2="495" y2="130" stroke="rgba(74,158,255,0.16)" stroke-width="1" stroke-dasharray="5,3"/>
+                <!-- Edges cluster 3 -->
+                <line x1="465" y1="48" x2="545" y2="78" stroke="rgba(160,216,160,0.28)" stroke-width="1.5"/>
+                <line x1="495" y1="130" x2="545" y2="78" stroke="rgba(160,216,160,0.22)" stroke-width="1"/>
+                <line x1="545" y1="78" x2="598" y2="152" stroke="rgba(160,216,160,0.18)" stroke-width="1"/>
+                <line x1="545" y1="78" x2="648" y2="90" stroke="rgba(160,216,160,0.28)" stroke-width="1.5"/>
+                <line x1="648" y1="90" x2="698" y2="40" stroke="rgba(160,216,160,0.2)" stroke-width="1"/>
+                <line x1="648" y1="90" x2="718" y2="150" stroke="rgba(160,216,160,0.18)" stroke-width="1"/>
+                <line x1="698" y1="40" x2="758" y2="95" stroke="rgba(160,216,160,0.16)" stroke-width="1"/>
+                <line x1="718" y1="150" x2="758" y2="95" stroke="rgba(160,216,160,0.16)" stroke-width="1"/>
+                <line x1="598" y1="152" x2="718" y2="150" stroke="rgba(160,216,160,0.14)" stroke-width="1"/>
+                <!-- Leaf nodes -->
+                <circle cx="75" cy="95" r="4.5" fill="#7a7d8a" opacity="0.75"/>
+                <circle cx="125" cy="42" r="4" fill="#7a7d8a" opacity="0.7"/>
+                <circle cx="145" cy="148" r="4" fill="#7a7d8a" opacity="0.7"/>
+                <circle cx="240" cy="168" r="4" fill="#7a7d8a" opacity="0.65"/>
+                <circle cx="295" cy="55" r="5" fill="#7a7d8a" opacity="0.75"/>
+                <circle cx="325" cy="145" r="5" fill="#7a7d8a" opacity="0.75"/>
+                <circle cx="465" cy="48" r="5" fill="#7a7d8a" opacity="0.75"/>
+                <circle cx="495" cy="130" r="5" fill="#7a7d8a" opacity="0.75"/>
+                <circle cx="598" cy="152" r="4" fill="#7a7d8a" opacity="0.7"/>
+                <circle cx="648" cy="90" r="6" fill="#7a7d8a" opacity="0.8"/>
+                <circle cx="698" cy="40" r="4" fill="#7a7d8a" opacity="0.7"/>
+                <circle cx="718" cy="150" r="5" fill="#7a7d8a" opacity="0.75"/>
+                <circle cx="758" cy="95" r="5" fill="#7a7d8a" opacity="0.75"/>
+                <!-- Hub glows -->
+                <circle cx="195" cy="90" r="13" fill="rgba(200,169,110,0.08)"/>
+                <circle cx="375" cy="88" r="13" fill="rgba(74,158,255,0.08)"/>
+                <circle cx="545" cy="78" r="13" fill="rgba(160,216,160,0.08)"/>
+                <!-- Hub nodes -->
+                <circle cx="195" cy="90" r="9" fill="#c8a96e" opacity="0.92"/>
+                <circle cx="375" cy="88" r="9" fill="#4a9eff" opacity="0.92"/>
+                <circle cx="545" cy="78" r="9" fill="#a0d8a0" opacity="0.92"/>
+                <!-- Hub labels -->
+                <text x="183" y="108" font-family="monospace" font-size="7.5" fill="#c8a96e" opacity="0.7">hub</text>
+                <text x="363" y="106" font-family="monospace" font-size="7.5" fill="#4a9eff" opacity="0.7">hub</text>
+                <text x="533" y="96" font-family="monospace" font-size="7.5" fill="#a0d8a0" opacity="0.7">hub</text>
+                <!-- Legend -->
+                <rect x="30" y="12" width="155" height="30" fill="rgba(18,21,29,0.7)" rx="2"/>
+                <circle cx="44" cy="27" r="4" fill="#c8a96e"/>
+                <text x="52" y="31" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.45)">Hub farm</text>
+                <circle cx="112" cy="27" r="3" fill="#7a7d8a"/>
+                <text x="120" y="31" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.45)">Farm</text>
+              </svg>
+            </div>
+            <div class="rp-head">
+              <span class="rp-head-num">02</span>
+              <h3>Livestock Movement Networks</h3>
+              <span class="rp-count">6 works</span>
+            </div>
+            <div class="rp-papers">
+              <a href="https://doi.org/10.1016/j.prevetmed.2024.106264" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2024</span>
+                <div class="rp-info">
+                  <div class="rp-title">Analyzing the intrastate and interstate swine movement network in the United States.</div>
+                  <div class="rp-journal">Preventive Veterinary Medicine · Cardenas NC, Valencio A, Sanchez F et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.1186/s13567-022-01031-7" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2022</span>
+                <div class="rp-info">
+                  <div class="rp-title">Multiple species animal movements: Network properties, disease dynamics, and the impact of targeted control actions.</div>
+                  <div class="rp-journal">Veterinary Research · Cardenas NC, Sykes AL, Lopes FPN, Machado G.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.1111/tbed.14631" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2022</span>
+                <div class="rp-info">
+                  <div class="rp-title">Network analysis of pig movements in Ecuador: Strengthening surveillance of classical swine fever.</div>
+                  <div class="rp-journal">Transboundary and Emerging Diseases · Acosta AJ, Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.1016/j.prevetmed.2021.105314" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2021</span>
+                <div class="rp-info">
+                  <div class="rp-title">Spatio-temporal network analysis of pig trade to inform the design of risk-based disease surveillance.</div>
+                  <div class="rp-journal">Preventive Veterinary Medicine · Cardenas NC, VanderWaal K et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.1111/tbed.13841" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2021</span>
+                <div class="rp-info">
+                  <div class="rp-title">Quantifying the dynamics of pig movements improves targeted disease surveillance and control plans.</div>
+                  <div class="rp-journal">Transboundary and Emerging Diseases · Machado G, Galvis JA, Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.1111/tbed.13071" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2019</span>
+                <div class="rp-info">
+                  <div class="rp-title">Burkholderia mallei: The dynamics of networks and disease transmission.</div>
+                  <div class="rp-journal">Transboundary and Emerging Diseases · Cardenas NC, Galvis JO, Farinati AA et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 03 — Control Strategy Evaluation -->
+          <div class="rp-block">
+            <div class="rp-illustration">
+              <!-- Control strategy: before/after intervention curves -->
+              <svg viewBox="0 0 800 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <rect width="800" height="190" fill="#12151d"/>
+                <!-- Grid -->
+                <line x1="0" y1="48" x2="800" y2="48" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="0" y1="96" x2="800" y2="96" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="0" y1="144" x2="800" y2="144" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="200" y1="0" x2="200" y2="190" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                <line x1="400" y1="0" x2="400" y2="190" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                <line x1="600" y1="0" x2="600" y2="190" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                <!-- Axes -->
+                <line x1="38" y1="12" x2="38" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <line x1="38" y1="170" x2="775" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <!-- Intervention vertical line -->
+                <line x1="310" y1="14" x2="310" y2="170" stroke="rgba(160,216,160,0.35)" stroke-width="1.5" stroke-dasharray="6,3"/>
+                <text x="315" y="22" font-family="monospace" font-size="8.5" fill="#a0d8a0" opacity="0.85">Intervention</text>
+                <!-- Uncontrolled curve (red, dashed) -->
+                <path d="M55,168 C105,168 155,155 220,122 C268,97 298,72 345,44 C380,22 415,16 445,20 C492,28 540,60 608,112 C655,146 708,163 760,167" fill="none" stroke="rgba(210,90,90,0.65)" stroke-width="2" stroke-dasharray="8,4"/>
+                <!-- Shaded prevented area -->
+                <path d="M310,115 C345,104 380,95 415,96 C455,98 500,114 570,140 C625,158 695,166 760,168 L760,167 C708,163 655,146 608,112 C540,60 492,28 445,20 C415,16 380,22 345,44 C320,60 310,80 310,115 Z" fill="rgba(160,216,160,0.07)"/>
+                <!-- Controlled curve (gold) -->
+                <path d="M55,168 C110,168 165,160 230,146 C278,135 308,124 345,114 C380,104 415,98 445,102 C490,110 545,132 615,152 C668,165 720,168 760,169" fill="none" stroke="#c8a96e" stroke-width="2.5"/>
+                <!-- Reduction annotation -->
+                <line x1="445" y1="22" x2="445" y2="100" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+                <polygon points="445,22 441,32 449,32" fill="rgba(255,255,255,0.25)"/>
+                <polygon points="445,100 441,90 449,90" fill="rgba(255,255,255,0.25)"/>
+                <text x="452" y="64" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.5)">−72%</text>
+                <text x="452" y="76" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.3)">cases</text>
+                <!-- Axis labels -->
+                <text x="42" y="182" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.18)">Day 0</text>
+                <text x="668" y="182" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.18)">Day 180</text>
+                <!-- Legend -->
+                <rect x="560" y="14" width="200" height="45" fill="rgba(18,21,29,0.72)" rx="2"/>
+                <line x1="572" y1="28" x2="594" y2="28" stroke="rgba(210,90,90,0.65)" stroke-width="2" stroke-dasharray="6,3"/>
+                <text x="600" y="32" font-family="monospace" font-size="9" fill="rgba(210,110,110,0.85)">No intervention</text>
+                <line x1="572" y1="46" x2="594" y2="46" stroke="#c8a96e" stroke-width="2.5"/>
+                <text x="600" y="50" font-family="monospace" font-size="9" fill="#c8a96e">With control</text>
+              </svg>
+            </div>
+            <div class="rp-head">
+              <span class="rp-head-num">03</span>
+              <h3>Control Strategy Evaluation</h3>
+              <span class="rp-count">6 works</span>
+            </div>
+            <div class="rp-papers">
+              <a href="https://doi.org/10.1016/j.prevetmed.2025.106765" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2025</span>
+                <div class="rp-info">
+                  <div class="rp-title">Enhancing US swine farm preparedness for infectious foreign animal diseases with rapid access to biosecurity information.</div>
+                  <div class="rp-journal">Preventive Veterinary Medicine · Fleming C, Mills K, Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.17605/OSF.IO/Z5WBJ" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2024</span>
+                <div class="rp-info">
+                  <div class="rp-title">The Rapid Access Biosecurity (RAB) App™ Handbook.</div>
+                  <div class="rp-journal">OSF Preprints · Machado G, Galvis JOA, Freeman A, Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-book">Book</span>
+              </a>
+              <a href="https://doi.org/10.1016/j.prevetmed.2022.105683" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2022</span>
+                <div class="rp-info">
+                  <div class="rp-title">Modelling control strategies against classical swine fever using static and temporal networks in Ecuador.</div>
+                  <div class="rp-journal">Preventive Veterinary Medicine · Acosta A, Cardenas NC, Imbacuan C et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.3390/microorganisms9020227" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2021</span>
+                <div class="rp-info">
+                  <div class="rp-title">Use of network analysis and spread models to target control actions for bovine tuberculosis in Brazil.</div>
+                  <div class="rp-journal">Microorganisms · Cardenas NC, Pozo P, Lopes FPN et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.1016/j.prevetmed.2021.105307" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2021</span>
+                <div class="rp-info">
+                  <div class="rp-title">Evaluation of the performance of slaughterhouse surveillance for bovine tuberculosis detection in Castilla y León, Spain.</div>
+                  <div class="rp-journal">Preventive Veterinary Medicine · Pozo P, Cardenas NC, Bezos J et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.1590/1808-1657000842016" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2018</span>
+                <div class="rp-info">
+                  <div class="rp-title">Isolation and identification of Mycobacterium bovis in bovines with positive tuberculin test in Paraíba, Brazil.</div>
+                  <div class="rp-journal">Arquivos do Instituto Biológico · Ramos JM, Heinemann MB, Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 04 — GIS & Spatial Analysis -->
+          <div class="rp-block">
+            <div class="rp-illustration">
+              <!-- GIS spatial risk heatmap -->
+              <svg viewBox="0 0 800 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <radialGradient id="hot1" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#c8a96e" stop-opacity="0.55"/>
+                    <stop offset="100%" stop-color="#c8a96e" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="hot2" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#4a9eff" stop-opacity="0.45"/>
+                    <stop offset="100%" stop-color="#4a9eff" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="hot3" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#c8a96e" stop-opacity="0.38"/>
+                    <stop offset="100%" stop-color="#c8a96e" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="hot4" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#4a9eff" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#4a9eff" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <rect width="800" height="190" fill="#12151d"/>
+                <!-- Grid cells (map-like) -->
+                <g stroke="rgba(255,255,255,0.05)" stroke-width="1" fill="none">
+                  <rect x="40" y="15" width="720" height="160"/>
+                  <!-- Horizontal subdivisions -->
+                  <line x1="40" y1="55" x2="760" y2="55"/>
+                  <line x1="40" y1="95" x2="760" y2="95"/>
+                  <line x1="40" y1="135" x2="760" y2="135"/>
+                  <!-- Vertical subdivisions -->
+                  <line x1="160" y1="15" x2="160" y2="175"/>
+                  <line x1="280" y1="15" x2="280" y2="175"/>
+                  <line x1="400" y1="15" x2="400" y2="175"/>
+                  <line x1="520" y1="15" x2="520" y2="175"/>
+                  <line x1="640" y1="15" x2="640" y2="175"/>
+                </g>
+                <!-- Heatmap blobs -->
+                <ellipse cx="200" cy="75" rx="95" ry="55" fill="url(#hot1)"/>
+                <ellipse cx="490" cy="55" rx="80" ry="48" fill="url(#hot2)"/>
+                <ellipse cx="340" cy="145" rx="70" ry="38" fill="url(#hot3)"/>
+                <ellipse cx="650" cy="130" rx="85" ry="45" fill="url(#hot4)"/>
+                <!-- Risk dots — high risk -->
+                <circle cx="200" cy="75" r="11" fill="#c8a96e" opacity="0.88"/>
+                <circle cx="490" cy="55" r="9" fill="#4a9eff" opacity="0.82"/>
+                <circle cx="340" cy="145" r="8" fill="#c8a96e" opacity="0.72"/>
+                <circle cx="650" cy="130" r="9" fill="#4a9eff" opacity="0.75"/>
+                <!-- Medium risk dots -->
+                <circle cx="130" cy="140" r="5.5" fill="#c8a96e" opacity="0.5"/>
+                <circle cx="270" cy="38" r="5" fill="#4a9eff" opacity="0.45"/>
+                <circle cx="420" cy="140" r="6" fill="#c8a96e" opacity="0.48"/>
+                <circle cx="580" cy="75" r="5.5" fill="#4a9eff" opacity="0.48"/>
+                <circle cx="710" cy="50" r="5" fill="#c8a96e" opacity="0.42"/>
+                <circle cx="95" cy="45" r="4.5" fill="#c8a96e" opacity="0.38"/>
+                <circle cx="720" cy="165" r="5" fill="#4a9eff" opacity="0.38"/>
+                <!-- Low risk dots -->
+                <circle cx="460" cy="165" r="3.5" fill="#7a7d8a" opacity="0.45"/>
+                <circle cx="160" cy="165" r="3" fill="#7a7d8a" opacity="0.38"/>
+                <circle cx="600" cy="165" r="3" fill="#7a7d8a" opacity="0.35"/>
+                <circle cx="55" cy="165" r="3" fill="#7a7d8a" opacity="0.32"/>
+                <circle cx="740" cy="105" r="3.5" fill="#7a7d8a" opacity="0.38"/>
+                <circle cx="365" cy="30" r="3" fill="#7a7d8a" opacity="0.35"/>
+                <!-- Compass rose -->
+                <text x="43" y="29" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.2)">N↑</text>
+                <!-- Legend -->
+                <rect x="560" y="140" width="190" height="28" fill="rgba(18,21,29,0.75)" rx="2"/>
+                <circle cx="574" cy="154" r="6" fill="#c8a96e" opacity="0.85"/>
+                <text x="584" y="158" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.45)">High risk cluster</text>
+                <circle cx="672" cy="154" r="4" fill="#7a7d8a" opacity="0.55"/>
+                <text x="680" y="158" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.35)">Low</text>
+              </svg>
+            </div>
+            <div class="rp-head">
+              <span class="rp-head-num">04</span>
+              <h3>GIS & Spatial Analysis</h3>
+              <span class="rp-count">4 works</span>
+            </div>
+            <div class="rp-papers">
+              <a href="https://doi.org/10.1111/tbed.14627" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2022</span>
+                <div class="rp-info">
+                  <div class="rp-title">Coupling spatial statistics with social network analysis to estimate distinct risk areas of disease circulation to improve risk-based surveillance.</div>
+                  <div class="rp-journal">Transboundary and Emerging Diseases · Cardenas NC, Sanchez F, Lopes FPN, Machado G.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.1590/0037-8682-0059-2020" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2020</span>
+                <div class="rp-info">
+                  <div class="rp-title">Risk factors associated with Leishmania exposure among dogs in Brazil.</div>
+                  <div class="rp-journal">Revista da Sociedade Brasileira de Medicina Tropical · Spada JCP, Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.1016/j.vas.2018.08.003" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2018</span>
+                <div class="rp-info">
+                  <div class="rp-title">Seroprevalence of Leptospira spp. infection in dogs in Bogotá, Colombia.</div>
+                  <div class="rp-journal">Veterinary and Animal Science · Cárdenas N, Infante GP et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+              <a href="https://doi.org/10.1590/0103-8478cr20160074" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2016</span>
+                <div class="rp-info">
+                  <div class="rp-title">Isolation and identification of Mycobacterium bovis in cow milk in northeastern Brazil.</div>
+                  <div class="rp-journal">Ciência Rural · Ramos JM, Heinemann MB, Cardenas NC et al.</div>
+                </div>
+                <span class="rp-badge badge-journal">Journal</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <section id="gallery">
       <div class="container">
         <p class="section-label">Gallery</p>
         <h2>Relevant Publications </h2>
-        <p class="gallery-intro">Publications where Nicolas Cespedes Cardenas is author or co-author.</p>
+        <p class="gallery-intro">Publications where Nicolas Cardenas is author or co-author.</p>
         <div class="figure-grid">
           <div class="figure-card fade-in">
             <div class="figure-img-wrap">
@@ -381,11 +891,11 @@
           </div>
           <div class="figure-card fade-in">
             <div class="figure-img-wrap">
-              <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1186%2Fs13567-022-01031-2/MediaObjects/13567_2022_1031_Fig1_HTML.png" alt="Within- and between-farm state transitions" loading="lazy" />
+              <div class="figure-placeholder">2025</div>
             </div>
             <div class="figure-body">
-              <p>Within-farm and between-farm transmission transitions — Multiple species animal movements (Veterinary Research, 2022).</p>
-              <a href="https://doi.org/10.1186/s13567-022-01031-2" class="figure-link" target="_blank" rel="noreferrer">Source article</a>
+              <p>First highly pathogenic avian influenza (HPAI) outbreak in a commercial farm in Brazil: outbreak timeline, control actions, risk analysis, and transmission modeling. Figure copyright reserved — not embedded here.</p>
+              <a href="https://arxiv.org/abs/2509.08492" class="figure-link" target="_blank" rel="noreferrer">Source article</a>
             </div>
           </div>
           <div class="figure-card fade-in">
@@ -467,46 +977,6 @@
       </div>
     </section>
 
-    <section id="publications">
-      <div class="container">
-        <p class="section-label">Publications</p>
-        <h2>Selected Publications</h2>
-        <div class="pub-list fade-in">
-          <div class="pub-item">
-            <span class="pub-year">2025</span>
-            <div class="pub-content">
-              <div class="pub-title">Integrating epidemiological and economic models to estimate the cost of simulated foot-and-mouth disease outbreaks in Brazil.</div>
-              <div class="pub-journal">Preventive Veterinary Medicine · Cardenas NC et al.</div>
-              <a href="https://doi.org/10.1016/j.prevetmed.2025.106558" class="pub-doi" target="_blank" rel="noreferrer">10.1016/j.prevetmed.2025.106558</a>
-            </div>
-          </div>
-          <div class="pub-item">
-            <span class="pub-year">2024</span>
-            <div class="pub-content">
-              <div class="pub-title">Modeling foot-and-mouth disease dissemination in Rio Grande do Sul, Brazil and evaluating the effectiveness of control measures.</div>
-              <div class="pub-journal">Frontiers in Veterinary Science · Cardenas NC et al.</div>
-              <a href="https://doi.org/10.3389/fvets.2024.1468864" class="pub-doi" target="_blank" rel="noreferrer">10.3389/fvets.2024.1468864</a>
-            </div>
-          </div>
-          <div class="pub-item">
-            <span class="pub-year">2024</span>
-            <div class="pub-content">
-              <div class="pub-title">Analyzing the intrastate and interstate swine movement network in the United States.</div>
-              <div class="pub-journal">Preventive Veterinary Medicine · Cardenas NC et al.</div>
-              <a href="https://doi.org/10.1016/j.prevetmed.2024.106264" class="pub-doi" target="_blank" rel="noreferrer">10.1016/j.prevetmed.2024.106264</a>
-            </div>
-          </div>
-          <div class="pub-item">
-            <span class="pub-year">2022</span>
-            <div class="pub-content">
-              <div class="pub-title">Multiple species animal movements: Network properties, disease dynamics, and the impact of targeted control actions.</div>
-              <div class="pub-journal">Veterinary Research · Cardenas NC et al.</div>
-              <a href="https://doi.org/10.1186/s13567-022-01031-2" class="pub-doi" target="_blank" rel="noreferrer">10.1186/s13567-022-01031-2</a>
-            </div>
-          </div>
-        </div>
-        <p style="margin-top:1.5rem; font-size:0.82rem; color:var(--muted); font-style:italic;">Full publication list available on request.</p>
-      </div>
     </section>
 
     <section id="contact">
@@ -531,7 +1001,7 @@
     </section>
 
     <footer>
-      <span class="footer-name">Nicolas Cespedes Cardenas</span>
+      <span class="footer-name">Nicolas Cardenas</span>
       <span class="footer-mono">© <span id="year"></span> · DVM · M.Sc. · PhD</span>
     </footer>
 
