@@ -270,6 +270,18 @@
       .tag-control { border-color: rgba(160,216,160,0.35); color: #a0d8a0; background: rgba(160,216,160,0.04); }
       .tag-gis { border-color: rgba(180,130,220,0.35); color: #c090e0; background: rgba(180,130,220,0.04); }
 
+      /* LANG TOGGLE */
+      .lang-toggle {
+        display: flex; align-items: center; gap: 0.45rem;
+        background: transparent; border: 1px solid var(--border);
+        color: var(--muted); cursor: pointer; padding: 0.28rem 0.65rem;
+        font-family: 'DM Mono', monospace; font-size: 0.68rem;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        transition: all 0.2s; border-radius: 2px; white-space: nowrap;
+      }
+      .lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+      .lang-toggle .flag { font-size: 1rem; line-height: 1; }
+
       /* RP ILLUSTRATIONS */
       .rp-illustration { height: 190px; overflow: hidden; border-bottom: 1px solid var(--border); background: #12151d; }
       .rp-illustration svg { width: 100%; height: 100%; display: block; }
@@ -307,26 +319,30 @@
     <nav>
       <a href="#hero" class="nav-logo">NCC / Epid</a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#research-impact">Publications</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#research" data-i18n="nav.research">Research</a></li>
+        <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#research-impact" data-i18n="nav.publications">Publications</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
+      <button class="lang-toggle" id="langToggle" onclick="toggleLang()" aria-label="Toggle language">
+        <span class="flag" id="langFlag">🇪🇸</span>
+        <span id="langLabel">ES</span>
+      </button>
     </nav>
 
     <section class="hero" id="hero">
       <div class="hero-inner">
-        <p class="eyebrow">Animal Health Epidemiology</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Animal Health Epidemiology</p>
         <h1>Nicolas<br><em>Cardenas</em><br></h1>
         <p class="hero-degree">DVM · M.Sc. · PhD</p>
-        <p class="hero-role">Research Scholar, Population Health & Pathobiology · NC State University</p>
-        <p class="hero-lead">Epidemiologist specializing in transboundary disease modeling, livestock network analysis, and AI-driven analytics for animal health systems.</p>
+        <p class="hero-role" data-i18n="hero.role">Research Scholar, Population Health &amp; Pathobiology · NC State University</p>
+        <p class="hero-lead" data-i18n="hero.lead">Epidemiologist specializing in transboundary disease modeling, livestock network analysis, and AI-driven analytics for animal health systems.</p>
         <div class="hero-cta">
-          <a href="#research" class="btn btn-primary">View Research</a>
-          <a href="#publications" class="btn btn-ghost">Publications</a>
-          <a href="mailto:ncesped@ncsu.edu" class="btn btn-ghost">Contact</a>
+          <a href="#research" class="btn btn-primary" data-i18n="hero.btn.research">View Research</a>
+          <a href="#research-impact" class="btn btn-ghost" data-i18n="hero.btn.pubs">Publications</a>
+          <a href="mailto:ncesped@ncsu.edu" class="btn btn-ghost" data-i18n="hero.btn.contact">Contact</a>
         </div>
       </div>
     </section>
@@ -334,58 +350,58 @@
     <div class="stats-bar">
       <div class="stat-item fade-in">
         <span class="stat-number">20+</span>
-        <span class="stat-label">Peer-Reviewed Papers</span>
+        <span class="stat-label" data-i18n="stats.papers">Peer-Reviewed Papers</span>
       </div>
       <div class="stat-item fade-in">
         <span class="stat-number">$3.16M</span>
-        <span class="stat-label">Research Funding Involved</span>
+        <span class="stat-label" data-i18n="stats.funding">Research Funding Involved</span>
       </div>
       <div class="stat-item fade-in">
-        <span class="stat-number">10+</span>
-        <span class="stat-label">International Workshops</span>
+        <span class="stat-number">11+</span>
+        <span class="stat-label" data-i18n="stats.workshops">International Workshops</span>
       </div>
     </div>
 
     <section id="about">
       <div class="container">
-        <p class="section-label">About</p>
+        <p class="section-label" data-i18n="about.label">About</p>
         <div class="about-grid">
           <div class="about-text fade-in">
-            <h2>Turning complex disease data into actionable insights</h2>
-            <p>A dedicated epidemiologist with a strong academic foundation and extensive practical experience in transboundary epidemiology and data science. With a Ph.D. in Epidemiology, Nicolas has developed deep expertise in data analysis, disease modeling, geospatial analysis, and biostatistics.</p>
-            <p>His work bridges mathematical modeling and real-world policy, helping governments and organizations build rapid, evidence-based responses to disease outbreaks. An international profile spanning Colombia, Brazil, Spain, and the United States underscores his commitment to global animal health.</p>
+            <h2 data-i18n="about.h2">Turning complex disease data into actionable insights</h2>
+            <p data-i18n="about.p1">A dedicated epidemiologist with a strong academic foundation and extensive practical experience in transboundary epidemiology and data science. With a Ph.D. in Epidemiology, Nicolas has developed deep expertise in data analysis, disease modeling, geospatial analysis, and biostatistics.</p>
+            <p data-i18n="about.p2">His work bridges mathematical modeling and real-world policy, helping governments and organizations build rapid, evidence-based responses to disease outbreaks. An international profile spanning Colombia, Brazil, Spain, and the United States underscores his commitment to global animal health.</p>
             <div class="chips">
-              <span class="chip">Biostatistics</span>
-              <span class="chip">Epidemiological Modeling</span>
-              <span class="chip">Network Analysis</span>
-              <span class="chip">GIS & Spatial Analysis</span>
-              <span class="chip">Risk Assessment</span>
+              <span class="chip" data-i18n="chip.biostatistics">Biostatistics</span>
+              <span class="chip" data-i18n="chip.epidemiological">Epidemiological Modeling</span>
+              <span class="chip" data-i18n="chip.network">Network Analysis</span>
+              <span class="chip" data-i18n="chip.gis">GIS &amp; Spatial Analysis</span>
+              <span class="chip" data-i18n="chip.risk">Risk Assessment</span>
               <span class="chip">R / Shiny</span>
               <span class="chip">Python</span>
-              <span class="chip">Outbreak Investigation</span>
-              <span class="chip">Stochastic Models</span>
-              <span class="chip">One Health</span>
+              <span class="chip" data-i18n="chip.outbreak">Outbreak Investigation</span>
+              <span class="chip" data-i18n="chip.stochastic">Stochastic Models</span>
+              <span class="chip" data-i18n="chip.onehealth">One Health</span>
             </div>
           </div>
           <div class="about-contact fade-in">
             <div class="contact-item">
-              <span class="contact-label">Current Role</span>
+              <span class="contact-label" data-i18n="label.role">Current Role</span>
               <span class="contact-value">Research Scholar, Population Health and Pathobiology</span>
             </div>
             <div class="contact-item">
-              <span class="contact-label">Institution</span>
+              <span class="contact-label" data-i18n="label.institution">Institution</span>
               <span class="contact-value">College of Veterinary Medicine, NC State University</span>
             </div>
             <div class="contact-item">
-              <span class="contact-label">Email</span>
+              <span class="contact-label" data-i18n="label.email">Email</span>
               <span class="contact-value"><a href="mailto:ncesped@ncsu.edu">ncesped@ncsu.edu</a></span>
             </div>
             <div class="contact-item">
-              <span class="contact-label">Group</span>
+              <span class="contact-label" data-i18n="label.group">Group</span>
               <span class="contact-value">NC State Affiliate Members: Infectious Diseases</span>
             </div>
             <div class="contact-item">
-              <span class="contact-label">Official Profile</span>
+              <span class="contact-label" data-i18n="label.profile">Official Profile</span>
               <span class="contact-value"><a href="https://provost.ncsu.edu/global-one-health-academy/people/nicolas-cespedes-cardenas/" target="_blank" rel="noreferrer">Global One Health Academy ↗</a></span>
             </div>
           </div>
@@ -395,28 +411,28 @@
 
     <section id="research">
       <div class="container">
-        <p class="section-label">Research</p>
-        <h2>Main Research Areas</h2>
+        <p class="section-label" data-i18n="nav.research">Research</p>
+        <h2 data-i18n="research.h2">Main Research Areas</h2>
         <div class="research-grid fade-in">
           <article class="research-card">
             <span class="research-number">01 / Research</span>
-            <h3>Multispecies Disease Modeling</h3>
-            <p>Builds stochastic and compartmental models for diseases such as foot-and-mouth disease, explicitly representing species-specific transmission and farm-level dynamics across large production landscapes.</p>
+            <h3 data-i18n="research.01.h3">Multispecies Disease Modeling</h3>
+            <p data-i18n="research.01.p">Builds stochastic and compartmental models for diseases such as foot-and-mouth disease, explicitly representing species-specific transmission and farm-level dynamics across large production landscapes.</p>
           </article>
           <article class="research-card">
             <span class="research-number">02 / Research</span>
-            <h3>Livestock Movement Networks</h3>
-            <p>Uses network science to map between-farm animal movements, detect high-impact nodes, and estimate epidemic pathways in complex multi-species production systems.</p>
+            <h3 data-i18n="research.02.h3">Livestock Movement Networks</h3>
+            <p data-i18n="research.02.p">Uses network science to map between-farm animal movements, detect high-impact nodes, and estimate epidemic pathways in complex multi-species production systems.</p>
           </article>
           <article class="research-card">
             <span class="research-number">03 / Research</span>
-            <h3>Control Strategy Evaluation</h3>
-            <p>Compares interventions — depopulation, vaccination, targeted movement restrictions — to support rapid, evidence-based outbreak response policies and contingency planning.</p>
+            <h3 data-i18n="research.03.h3">Control Strategy Evaluation</h3>
+            <p data-i18n="research.03.p">Compares interventions — depopulation, vaccination, targeted movement restrictions — to support rapid, evidence-based outbreak response policies and contingency planning.</p>
           </article>
           <article class="research-card">
             <span class="research-number">04 / Research</span>
-            <h3>GIS & Spatial Analysis</h3>
-            <p>Applies geospatial methods to identify disease clusters, characterize regional risk patterns, and support surveillance and preparedness planning across national livestock systems.</p>
+            <h3 data-i18n="research.04.h3">GIS &amp; Spatial Analysis</h3>
+            <p data-i18n="research.04.p">Applies geospatial methods to identify disease clusters, characterize regional risk patterns, and support surveillance and preparedness planning across national livestock systems.</p>
           </article>
         </div>
       </div>
@@ -424,9 +440,9 @@
 
     <section id="research-impact">
       <div class="container">
-        <p class="section-label">Research × Publications</p>
-        <h2>Research Areas & Key Papers</h2>
-        <p class="rp-intro">Each main research area linked to its contributing peer-reviewed publications, book chapters, and preprints.</p>
+        <p class="section-label" data-i18n="rp.label">Research × Publications</p>
+        <h2 data-i18n="rp.h2">Research Areas &amp; Key Papers</h2>
+        <p class="rp-intro" data-i18n="rp.intro">Each main research area linked to its contributing peer-reviewed publications, book chapters, and preprints.</p>
         <div class="rp-grid fade-in">
 
           <!-- 01 — Multispecies Disease Modeling -->
@@ -467,8 +483,8 @@
             </div>
             <div class="rp-head">
               <span class="rp-head-num">01</span>
-              <h3>Multispecies Disease Modeling</h3>
-              <span class="rp-count">7 works</span>
+              <h3 data-i18n="research.01.h3">Multispecies Disease Modeling</h3>
+              <span class="rp-count">7 <span data-i18n="rp.works">works</span></span>
             </div>
             <div class="rp-papers">
               <a href="https://doi.org/10.48550/arXiv.2603.06694" class="rp-paper-row" target="_blank" rel="noreferrer">
@@ -477,7 +493,7 @@
                   <div class="rp-title">A modelling assessment of the impact of control measures on simulated foot-and-mouth disease spread in Mato Grosso do Sul, Brazil.</div>
                   <div class="rp-journal">arXiv · Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-preprint">Preprint</span>
+                <span class="rp-badge badge-preprint" data-i18n="badge.preprint">Preprint</span>
               </a>
               <a href="https://doi.org/10.1155/tbed/9055612" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2025</span>
@@ -485,7 +501,7 @@
                   <div class="rp-title">Foot-and-Mouth Disease in Bolivia: Simulation-Based Assessment of Control Strategies and Vaccination Requirements.</div>
                   <div class="rp-journal">Transboundary and Emerging Diseases · Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.1590/0103-8478cr20240540" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2025</span>
@@ -493,7 +509,7 @@
                   <div class="rp-title">Assessing epidemiological parameters and dissemination characteristics of the 2000 and 2001 FMD outbreaks in Rio Grande do Sul, Brazil.</div>
                   <div class="rp-journal">Ciência Rural · Costa MN, Corbellini LG, Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.1016/j.prevetmed.2025.106558" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2025</span>
@@ -501,7 +517,7 @@
                   <div class="rp-title">Integrating epidemiological and economic models to estimate the cost of simulated foot-and-mouth disease outbreaks in Brazil.</div>
                   <div class="rp-journal">Preventive Veterinary Medicine · Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.3389/fvets.2024.1468864" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2024</span>
@@ -509,7 +525,7 @@
                   <div class="rp-title">Modeling foot-and-mouth disease dissemination in Rio Grande do Sul, Brazil and evaluating the effectiveness of control measures.</div>
                   <div class="rp-journal">Frontiers in Veterinary Science · Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.5220/0012742700003690" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2024</span>
@@ -517,7 +533,7 @@
                   <div class="rp-title">A Distributed Processing Architecture for Disease Spread Analysis in the PDSA-RS Platform.</div>
                   <div class="rp-journal">ICEIS 2024 · Ebling D, Machado F, Descovi G, Cardenas N et al.</div>
                 </div>
-                <span class="rp-badge badge-conf">Conf.</span>
+                <span class="rp-badge badge-conf" data-i18n="badge.conf">Conf.</span>
               </a>
               <a href="https://doi.org/10.3389/fvets.2023.1158306" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2023</span>
@@ -525,7 +541,7 @@
                   <div class="rp-title">Spatiotemporal relative risk distribution of porcine reproductive and respiratory syndrome virus in the United States.</div>
                   <div class="rp-journal">Frontiers in Veterinary Science · Sanchez F, Galvis JA, Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
             </div>
           </div>
@@ -602,8 +618,8 @@
             </div>
             <div class="rp-head">
               <span class="rp-head-num">02</span>
-              <h3>Livestock Movement Networks</h3>
-              <span class="rp-count">6 works</span>
+              <h3 data-i18n="research.02.h3">Livestock Movement Networks</h3>
+              <span class="rp-count">6 <span data-i18n="rp.works">works</span></span>
             </div>
             <div class="rp-papers">
               <a href="https://doi.org/10.1016/j.prevetmed.2024.106264" class="rp-paper-row" target="_blank" rel="noreferrer">
@@ -612,7 +628,7 @@
                   <div class="rp-title">Analyzing the intrastate and interstate swine movement network in the United States.</div>
                   <div class="rp-journal">Preventive Veterinary Medicine · Cardenas NC, Valencio A, Sanchez F et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.1186/s13567-022-01031-7" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2022</span>
@@ -620,7 +636,7 @@
                   <div class="rp-title">Multiple species animal movements: Network properties, disease dynamics, and the impact of targeted control actions.</div>
                   <div class="rp-journal">Veterinary Research · Cardenas NC, Sykes AL, Lopes FPN, Machado G.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.1111/tbed.14631" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2022</span>
@@ -628,7 +644,7 @@
                   <div class="rp-title">Network analysis of pig movements in Ecuador: Strengthening surveillance of classical swine fever.</div>
                   <div class="rp-journal">Transboundary and Emerging Diseases · Acosta AJ, Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.1016/j.prevetmed.2021.105314" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2021</span>
@@ -636,7 +652,7 @@
                   <div class="rp-title">Spatio-temporal network analysis of pig trade to inform the design of risk-based disease surveillance.</div>
                   <div class="rp-journal">Preventive Veterinary Medicine · Cardenas NC, VanderWaal K et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.1111/tbed.13841" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2021</span>
@@ -644,7 +660,7 @@
                   <div class="rp-title">Quantifying the dynamics of pig movements improves targeted disease surveillance and control plans.</div>
                   <div class="rp-journal">Transboundary and Emerging Diseases · Machado G, Galvis JA, Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.1111/tbed.13071" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2019</span>
@@ -652,7 +668,7 @@
                   <div class="rp-title">Burkholderia mallei: The dynamics of networks and disease transmission.</div>
                   <div class="rp-journal">Transboundary and Emerging Diseases · Cardenas NC, Galvis JO, Farinati AA et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
             </div>
           </div>
@@ -701,8 +717,8 @@
             </div>
             <div class="rp-head">
               <span class="rp-head-num">03</span>
-              <h3>Control Strategy Evaluation</h3>
-              <span class="rp-count">6 works</span>
+              <h3 data-i18n="research.03.h3">Control Strategy Evaluation</h3>
+              <span class="rp-count">6 <span data-i18n="rp.works">works</span></span>
             </div>
             <div class="rp-papers">
               <a href="https://doi.org/10.1016/j.prevetmed.2025.106765" class="rp-paper-row" target="_blank" rel="noreferrer">
@@ -711,7 +727,7 @@
                   <div class="rp-title">Enhancing US swine farm preparedness for infectious foreign animal diseases with rapid access to biosecurity information.</div>
                   <div class="rp-journal">Preventive Veterinary Medicine · Fleming C, Mills K, Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.17605/OSF.IO/Z5WBJ" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2024</span>
@@ -719,7 +735,7 @@
                   <div class="rp-title">The Rapid Access Biosecurity (RAB) App™ Handbook.</div>
                   <div class="rp-journal">OSF Preprints · Machado G, Galvis JOA, Freeman A, Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-book">Book</span>
+                <span class="rp-badge badge-book" data-i18n="badge.book">Book</span>
               </a>
               <a href="https://doi.org/10.1016/j.prevetmed.2022.105683" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2022</span>
@@ -727,7 +743,7 @@
                   <div class="rp-title">Modelling control strategies against classical swine fever using static and temporal networks in Ecuador.</div>
                   <div class="rp-journal">Preventive Veterinary Medicine · Acosta A, Cardenas NC, Imbacuan C et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.3390/microorganisms9020227" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2021</span>
@@ -735,7 +751,7 @@
                   <div class="rp-title">Use of network analysis and spread models to target control actions for bovine tuberculosis in Brazil.</div>
                   <div class="rp-journal">Microorganisms · Cardenas NC, Pozo P, Lopes FPN et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.1016/j.prevetmed.2021.105307" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2021</span>
@@ -743,7 +759,7 @@
                   <div class="rp-title">Evaluation of the performance of slaughterhouse surveillance for bovine tuberculosis detection in Castilla y León, Spain.</div>
                   <div class="rp-journal">Preventive Veterinary Medicine · Pozo P, Cardenas NC, Bezos J et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.1590/1808-1657000842016" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2018</span>
@@ -751,7 +767,7 @@
                   <div class="rp-title">Isolation and identification of Mycobacterium bovis in bovines with positive tuberculin test in Paraíba, Brazil.</div>
                   <div class="rp-journal">Arquivos do Instituto Biológico · Ramos JM, Heinemann MB, Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
             </div>
           </div>
@@ -831,8 +847,8 @@
             </div>
             <div class="rp-head">
               <span class="rp-head-num">04</span>
-              <h3>GIS & Spatial Analysis</h3>
-              <span class="rp-count">4 works</span>
+              <h3 data-i18n="research.04.h3">GIS &amp; Spatial Analysis</h3>
+              <span class="rp-count">4 <span data-i18n="rp.works">works</span></span>
             </div>
             <div class="rp-papers">
               <a href="https://doi.org/10.1111/tbed.14627" class="rp-paper-row" target="_blank" rel="noreferrer">
@@ -841,7 +857,7 @@
                   <div class="rp-title">Coupling spatial statistics with social network analysis to estimate distinct risk areas of disease circulation to improve risk-based surveillance.</div>
                   <div class="rp-journal">Transboundary and Emerging Diseases · Cardenas NC, Sanchez F, Lopes FPN, Machado G.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.1590/0037-8682-0059-2020" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2020</span>
@@ -849,7 +865,7 @@
                   <div class="rp-title">Risk factors associated with Leishmania exposure among dogs in Brazil.</div>
                   <div class="rp-journal">Revista da Sociedade Brasileira de Medicina Tropical · Spada JCP, Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.1016/j.vas.2018.08.003" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2018</span>
@@ -857,7 +873,7 @@
                   <div class="rp-title">Seroprevalence of Leptospira spp. infection in dogs in Bogotá, Colombia.</div>
                   <div class="rp-journal">Veterinary and Animal Science · Cárdenas N, Infante GP et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
               <a href="https://doi.org/10.1590/0103-8478cr20160074" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2016</span>
@@ -865,7 +881,7 @@
                   <div class="rp-title">Isolation and identification of Mycobacterium bovis in cow milk in northeastern Brazil.</div>
                   <div class="rp-journal">Ciência Rural · Ramos JM, Heinemann MB, Cardenas NC et al.</div>
                 </div>
-                <span class="rp-badge badge-journal">Journal</span>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
               </a>
             </div>
           </div>
@@ -876,17 +892,17 @@
 
     <section id="gallery">
       <div class="container">
-        <p class="section-label">Gallery</p>
-        <h2>Relevant Publications </h2>
-        <p class="gallery-intro">Publications where Nicolas Cardenas is author or co-author.</p>
+        <p class="section-label" data-i18n="nav.gallery">Gallery</p>
+        <h2 data-i18n="gallery.h2">Relevant Publications</h2>
+        <p class="gallery-intro" data-i18n="gallery.intro">Publications where Nicolas Cardenas is author or co-author.</p>
         <div class="figure-grid">
           <div class="figure-card fade-in">
             <div class="figure-img-wrap">
               <img src="https://www.frontiersin.org/files/Articles/1468864/xml-images/fvets-11-1468864-g001.webp" alt="FMD transmission modeling framework" loading="lazy" />
             </div>
             <div class="figure-body">
-              <p>Modeling foot-and-mouth disease dissemination in Rio Grande do Sul, Brazil and evaluating the effectiveness of control measures.</p>
-              <a href="https://doi.org/10.3389/fvets.2024.1468864" class="figure-link" target="_blank" rel="noreferrer">Source article</a>
+              <p data-i18n="gallery.fig1.desc">Modeling foot-and-mouth disease dissemination in Rio Grande do Sul, Brazil and evaluating the effectiveness of control measures.</p>
+              <a href="https://doi.org/10.3389/fvets.2024.1468864" class="figure-link" target="_blank" rel="noreferrer" data-i18n="gallery.link">Source article</a>
             </div>
           </div>
           <div class="figure-card fade-in">
@@ -894,8 +910,8 @@
               <div class="figure-placeholder">2025</div>
             </div>
             <div class="figure-body">
-              <p>First highly pathogenic avian influenza (HPAI) outbreak in a commercial farm in Brazil: outbreak timeline, control actions, risk analysis, and transmission modeling. Figure copyright reserved — not embedded here.</p>
-              <a href="https://arxiv.org/abs/2509.08492" class="figure-link" target="_blank" rel="noreferrer">Source article</a>
+              <p data-i18n="gallery.fig2.desc">First highly pathogenic avian influenza (HPAI) outbreak in a commercial farm in Brazil: outbreak timeline, control actions, risk analysis, and transmission modeling. Figure copyright reserved — not embedded here.</p>
+              <a href="https://arxiv.org/abs/2509.08492" class="figure-link" target="_blank" rel="noreferrer" data-i18n="gallery.link">Source article</a>
             </div>
           </div>
           <div class="figure-card fade-in">
@@ -903,8 +919,8 @@
               <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1186%2Fs13567-022-01031-2/MediaObjects/13567_2022_1031_Fig7_HTML.png" alt="Simulated secondary infected farms" loading="lazy" />
             </div>
             <div class="figure-body">
-              <p>Network properties, disease dynamics and the impact of targeted control actions on simulated secondary infected farms (Veterinary Research, 2022).</p>
-              <a href="https://doi.org/10.1186/s13567-022-01031-2" class="figure-link" target="_blank" rel="noreferrer">Source article</a>
+              <p data-i18n="gallery.fig3.desc">Network properties, disease dynamics and the impact of targeted control actions on simulated secondary infected farms (Veterinary Research, 2022).</p>
+              <a href="https://doi.org/10.1186/s13567-022-01031-2" class="figure-link" target="_blank" rel="noreferrer" data-i18n="gallery.link">Source article</a>
             </div>
           </div>
           <div class="figure-card fade-in">
@@ -912,8 +928,8 @@
               <div class="figure-placeholder">2025</div>
             </div>
             <div class="figure-body">
-              <p>Integrating epidemiological and economic models to estimate FMD outbreak costs in Brazil. Figure copyright Elsevier — not embedded here.</p>
-              <a href="https://doi.org/10.1016/j.prevetmed.2025.106558" class="figure-link" target="_blank" rel="noreferrer">Source article</a>
+              <p data-i18n="gallery.fig4.desc">Integrating epidemiological and economic models to estimate FMD outbreak costs in Brazil. Figure copyright Elsevier — not embedded here.</p>
+              <a href="https://doi.org/10.1016/j.prevetmed.2025.106558" class="figure-link" target="_blank" rel="noreferrer" data-i18n="gallery.link">Source article</a>
             </div>
           </div>
         </div>
@@ -922,26 +938,26 @@
 
     <section id="experience">
       <div class="container">
-        <p class="section-label">Experience</p>
-        <h2>Professional Experience</h2>
+        <p class="section-label" data-i18n="nav.experience">Experience</p>
+        <h2 data-i18n="exp.h2">Professional Experience</h2>
         <div class="timeline fade-in">
           <div class="timeline-item">
             <p class="timeline-date">Nov 2023 – Present</p>
             <h3>North Carolina State University</h3>
-            <p class="timeline-role">Research Scholar (Associate Researcher) · Raleigh, NC</p>
-            <p>Leads data-driven epidemiological projects, mentors students and analysts, develops R-based outbreak tools, and contributes to grant and manuscript production.</p>
+            <p class="timeline-role" data-i18n="exp.1.role">Research Scholar (Associate Researcher) · Raleigh, NC</p>
+            <p data-i18n="exp.1.desc">Leads data-driven epidemiological projects, mentors students and analysts, develops R-based outbreak tools, and contributes to grant and manuscript production.</p>
           </div>
           <div class="timeline-item">
             <p class="timeline-date">Feb 2021 – Nov 2023</p>
             <h3>North Carolina State University</h3>
-            <p class="timeline-role">Post-Doctoral Associate · Raleigh, NC</p>
-            <p>Built mathematical models for cross-species transmission and delivered technical workshops for outbreak response training in Latin America.</p>
+            <p class="timeline-role" data-i18n="exp.2.role">Post-Doctoral Associate · Raleigh, NC</p>
+            <p data-i18n="exp.2.desc">Built mathematical models for cross-species transmission and delivered technical workshops for outbreak response training in Latin America.</p>
           </div>
           <div class="timeline-item">
             <p class="timeline-date">2013 – 2020</p>
-            <h3>International Research Training</h3>
-            <p class="timeline-role">Fellowship & Training · Europe / Americas</p>
-            <p>Fellowship and research training at Universidad Complutense Madrid (VISAVET), University of Minnesota (STEMMA), and University of São Paulo — building a truly international epidemiological perspective.</p>
+            <h3 data-i18n="exp.3.inst">International Research Training</h3>
+            <p class="timeline-role" data-i18n="exp.3.role">Fellowship &amp; Training · Europe / Americas</p>
+            <p data-i18n="exp.3.desc">Fellowship and research training at Universidad Complutense Madrid (VISAVET), University of Minnesota (STEMMA), and University of São Paulo — building a truly international epidemiological perspective.</p>
           </div>
         </div>
       </div>
@@ -949,26 +965,26 @@
 
     <section id="education">
       <div class="container">
-        <p class="section-label">Education</p>
-        <h2>Academic Formation</h2>
+        <p class="section-label" data-i18n="edu.label">Education</p>
+        <h2 data-i18n="edu.h2">Academic Formation</h2>
         <div class="edu-grid fade-in">
           <div class="edu-item">
             <div>
-              <div class="edu-degree">PhD, Experimental Epidemiology Applied to Zoonoses</div>
+              <div class="edu-degree" data-i18n="edu.1.degree">PhD, Experimental Epidemiology Applied to Zoonoses</div>
               <div class="edu-institution">University of São Paulo</div>
             </div>
             <div class="edu-year">2016 – 2020</div>
           </div>
           <div class="edu-item">
             <div>
-              <div class="edu-degree">M.Sc., Experimental Epidemiology Applied to Zoonoses</div>
+              <div class="edu-degree" data-i18n="edu.2.degree">M.Sc., Experimental Epidemiology Applied to Zoonoses</div>
               <div class="edu-institution">University of São Paulo</div>
             </div>
             <div class="edu-year">2014 – 2015</div>
           </div>
           <div class="edu-item">
             <div>
-              <div class="edu-degree">Doctor of Veterinary Medicine (DVM)</div>
+              <div class="edu-degree" data-i18n="edu.3.degree">Doctor of Veterinary Medicine (DVM)</div>
               <div class="edu-institution">National University of Colombia</div>
             </div>
             <div class="edu-year">2007 – 2013</div>
@@ -977,23 +993,21 @@
       </div>
     </section>
 
-    </section>
-
     <section id="contact">
       <div class="container">
-        <p class="section-label">Contact</p>
-        <h2>Get in Touch</h2>
+        <p class="section-label" data-i18n="nav.contact">Contact</p>
+        <h2 data-i18n="contact.h2">Get in Touch</h2>
         <div class="about-contact fade-in" style="max-width:480px;">
           <div class="contact-item">
-            <span class="contact-label">Email</span>
+            <span class="contact-label" data-i18n="label.email">Email</span>
             <span class="contact-value"><a href="mailto:ncesped@ncsu.edu">ncesped@ncsu.edu</a></span>
           </div>
           <div class="contact-item">
-            <span class="contact-label">Institution</span>
+            <span class="contact-label" data-i18n="label.institution">Institution</span>
             <span class="contact-value">College of Veterinary Medicine, NC State University</span>
           </div>
           <div class="contact-item">
-            <span class="contact-label">Official Profile</span>
+            <span class="contact-label" data-i18n="label.profile">Official Profile</span>
             <span class="contact-value"><a href="https://provost.ncsu.edu/global-one-health-academy/people/nicolas-cespedes-cardenas/" target="_blank" rel="noreferrer">NC State Global One Health Academy ↗</a></span>
           </div>
         </div>
@@ -1016,6 +1030,128 @@
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+      /* ── TRANSLATIONS ── */
+      const i18n = {
+        en: {
+          'nav.about':'About','nav.research':'Research','nav.gallery':'Gallery',
+          'nav.experience':'Experience','nav.publications':'Publications','nav.contact':'Contact',
+          'hero.eyebrow':'Animal Health Epidemiology',
+          'hero.role':'Research Scholar, Population Health & Pathobiology · NC State University',
+          'hero.lead':'Epidemiologist specializing in transboundary disease modeling, livestock network analysis, and AI-driven analytics for animal health systems.',
+          'hero.btn.research':'View Research','hero.btn.pubs':'Publications','hero.btn.contact':'Contact',
+          'stats.papers':'Peer-Reviewed Papers','stats.funding':'Research Funding Involved','stats.workshops':'International Workshops',
+          'about.label':'About',
+          'about.h2':'Turning complex disease data into actionable insights',
+          'about.p1':'A dedicated epidemiologist with a strong academic foundation and extensive practical experience in transboundary epidemiology and data science. With a Ph.D. in Epidemiology, Nicolas has developed deep expertise in data analysis, disease modeling, geospatial analysis, and biostatistics.',
+          'about.p2':'His work bridges mathematical modeling and real-world policy, helping governments and organizations build rapid, evidence-based responses to disease outbreaks. An international profile spanning Colombia, Brazil, Spain, and the United States underscores his commitment to global animal health.',
+          'label.role':'Current Role','label.institution':'Institution','label.email':'Email','label.group':'Group','label.profile':'Official Profile',
+          'chip.biostatistics':'Biostatistics','chip.epidemiological':'Epidemiological Modeling','chip.network':'Network Analysis',
+          'chip.gis':'GIS & Spatial Analysis','chip.risk':'Risk Assessment','chip.outbreak':'Outbreak Investigation',
+          'chip.stochastic':'Stochastic Models','chip.onehealth':'One Health',
+          'research.h2':'Main Research Areas',
+          'research.01.h3':'Multispecies Disease Modeling',
+          'research.01.p':'Builds stochastic and compartmental models for diseases such as foot-and-mouth disease, explicitly representing species-specific transmission and farm-level dynamics across large production landscapes.',
+          'research.02.h3':'Livestock Movement Networks',
+          'research.02.p':'Uses network science to map between-farm animal movements, detect high-impact nodes, and estimate epidemic pathways in complex multi-species production systems.',
+          'research.03.h3':'Control Strategy Evaluation',
+          'research.03.p':'Compares interventions — depopulation, vaccination, targeted movement restrictions — to support rapid, evidence-based outbreak response policies and contingency planning.',
+          'research.04.h3':'GIS & Spatial Analysis',
+          'research.04.p':'Applies geospatial methods to identify disease clusters, characterize regional risk patterns, and support surveillance and preparedness planning across national livestock systems.',
+          'rp.label':'Research × Publications','rp.h2':'Research Areas & Key Papers',
+          'rp.intro':'Each main research area linked to its contributing peer-reviewed publications, book chapters, and preprints.',
+          'rp.works':'works',
+          'badge.journal':'Journal','badge.preprint':'Preprint','badge.book':'Book','badge.conf':'Conf.',
+          'gallery.h2':'Relevant Publications',
+          'gallery.intro':'Publications where Nicolas Cardenas is author or co-author.',
+          'gallery.fig1.desc':'Modeling foot-and-mouth disease dissemination in Rio Grande do Sul, Brazil and evaluating the effectiveness of control measures.',
+          'gallery.fig2.desc':'First highly pathogenic avian influenza (HPAI) outbreak in a commercial farm in Brazil: outbreak timeline, control actions, risk analysis, and transmission modeling. Figure copyright reserved — not embedded here.',
+          'gallery.fig3.desc':'Network properties, disease dynamics and the impact of targeted control actions on simulated secondary infected farms (Veterinary Research, 2022).',
+          'gallery.fig4.desc':'Integrating epidemiological and economic models to estimate FMD outbreak costs in Brazil. Figure copyright Elsevier — not embedded here.',
+          'gallery.link':'Source article',
+          'exp.h2':'Professional Experience',
+          'exp.1.role':'Research Scholar (Associate Researcher) · Raleigh, NC',
+          'exp.1.desc':'Leads data-driven epidemiological projects, mentors students and analysts, develops R-based outbreak tools, and contributes to grant and manuscript production.',
+          'exp.2.role':'Post-Doctoral Associate · Raleigh, NC',
+          'exp.2.desc':'Built mathematical models for cross-species transmission and delivered technical workshops for outbreak response training in Latin America.',
+          'exp.3.inst':'International Research Training',
+          'exp.3.role':'Fellowship & Training · Europe / Americas',
+          'exp.3.desc':'Fellowship and research training at Universidad Complutense Madrid (VISAVET), University of Minnesota (STEMMA), and University of São Paulo — building a truly international epidemiological perspective.',
+          'edu.label':'Education','edu.h2':'Academic Formation',
+          'edu.1.degree':'PhD, Experimental Epidemiology Applied to Zoonoses',
+          'edu.2.degree':'M.Sc., Experimental Epidemiology Applied to Zoonoses',
+          'edu.3.degree':'Doctor of Veterinary Medicine (DVM)',
+          'contact.h2':'Get in Touch',
+        },
+        es: {
+          'nav.about':'Sobre mí','nav.research':'Investigación','nav.gallery':'Galería',
+          'nav.experience':'Experiencia','nav.publications':'Publicaciones','nav.contact':'Contacto',
+          'hero.eyebrow':'Epidemiología en Salud Animal',
+          'hero.role':'Investigador Scholar, Salud Poblacional y Patobiología · NC State University',
+          'hero.lead':'Epidemiólogo especializado en modelado de enfermedades transfronterizas, análisis de redes de movimiento ganadero y analítica basada en IA para sistemas de salud animal.',
+          'hero.btn.research':'Ver Investigación','hero.btn.pubs':'Publicaciones','hero.btn.contact':'Contacto',
+          'stats.papers':'Artículos Revisados por Pares','stats.funding':'Financiamiento de Investigación','stats.workshops':'Talleres Internacionales',
+          'about.label':'Sobre mí',
+          'about.h2':'Convirtiendo datos complejos de enfermedades en conocimiento aplicable',
+          'about.p1':'Epidemiólogo comprometido con sólida formación académica y amplia experiencia práctica en epidemiología transfronteriza y ciencia de datos. Con un doctorado en Epidemiología, Nicolas ha desarrollado profunda experiencia en análisis de datos, modelado de enfermedades, análisis geoespacial y bioestadística.',
+          'about.p2':'Su trabajo integra el modelado matemático con políticas del mundo real, ayudando a gobiernos y organizaciones a construir respuestas rápidas y basadas en evidencia ante brotes de enfermedades. Un perfil internacional que abarca Colombia, Brasil, España y Estados Unidos refleja su compromiso con la salud animal global.',
+          'label.role':'Cargo Actual','label.institution':'Institución','label.email':'Correo','label.group':'Grupo','label.profile':'Perfil Oficial',
+          'chip.biostatistics':'Bioestadística','chip.epidemiological':'Modelado Epidemiológico','chip.network':'Análisis de Redes',
+          'chip.gis':'SIG y Análisis Espacial','chip.risk':'Evaluación de Riesgo','chip.outbreak':'Investigación de Brotes',
+          'chip.stochastic':'Modelos Estocásticos','chip.onehealth':'Una Salud',
+          'research.h2':'Áreas Principales de Investigación',
+          'research.01.h3':'Modelado de Enfermedades Multiespecies',
+          'research.01.p':'Construye modelos estocásticos y compartimentales para enfermedades como la fiebre aftosa, representando explícitamente la transmisión específica por especie y las dinámicas a nivel de granja en grandes paisajes productivos.',
+          'research.02.h3':'Redes de Movimiento Ganadero',
+          'research.02.p':'Utiliza la ciencia de redes para mapear movimientos de animales entre granjas, detectar nodos de alto impacto y estimar rutas epidémicas en sistemas productivos multiespecies.',
+          'research.03.h3':'Evaluación de Estrategias de Control',
+          'research.03.p':'Compara intervenciones —despoblación, vacunación, restricciones de movimiento focalizadas— para apoyar políticas de respuesta a brotes rápidas y basadas en evidencia, así como la planificación de contingencias.',
+          'research.04.h3':'SIG y Análisis Espacial',
+          'research.04.p':'Aplica métodos geoespaciales para identificar agrupamientos de enfermedades, caracterizar patrones de riesgo regional y apoyar la planificación de vigilancia y preparación en sistemas ganaderos nacionales.',
+          'rp.label':'Investigación × Publicaciones','rp.h2':'Áreas de Investigación y Publicaciones Clave',
+          'rp.intro':'Cada área principal de investigación vinculada a sus publicaciones revisadas por pares, capítulos de libros y preprints correspondientes.',
+          'rp.works':'trabajos',
+          'badge.journal':'Revista','badge.preprint':'Preprint','badge.book':'Libro','badge.conf':'Conf.',
+          'gallery.h2':'Publicaciones Relevantes',
+          'gallery.intro':'Publicaciones donde Nicolas Cardenas es autor o coautor.',
+          'gallery.fig1.desc':'Modelado de la diseminación de la fiebre aftosa en Rio Grande do Sul, Brasil, y evaluación de la efectividad de las medidas de control.',
+          'gallery.fig2.desc':'Primer brote de influenza aviar altamente patógena (IAAP) en una granja comercial en Brasil: cronología del brote, acciones de control, análisis de riesgo y modelado de transmisión. Figura con derechos reservados.',
+          'gallery.fig3.desc':'Propiedades de redes, dinámica de enfermedades e impacto de acciones de control dirigidas sobre granjas secundarias infectadas simuladas (Veterinary Research, 2022).',
+          'gallery.fig4.desc':'Integración de modelos epidemiológicos y económicos para estimar los costos de brotes simulados de fiebre aftosa en Brasil. Figura con derechos Elsevier.',
+          'gallery.link':'Artículo fuente',
+          'exp.h2':'Experiencia Profesional',
+          'exp.1.role':'Investigador Scholar (Investigador Asociado) · Raleigh, NC',
+          'exp.1.desc':'Lidera proyectos epidemiológicos basados en datos, mentora a estudiantes y analistas, desarrolla herramientas de brotes en R y contribuye a la producción de subvenciones y manuscritos.',
+          'exp.2.role':'Investigador Postdoctoral · Raleigh, NC',
+          'exp.2.desc':'Construyó modelos matemáticos para transmisión entre especies y dictó talleres técnicos de capacitación en respuesta a brotes en América Latina.',
+          'exp.3.inst':'Formación Internacional en Investigación',
+          'exp.3.role':'Beca e Investigación · Europa / Américas',
+          'exp.3.desc':'Beca e investigación en la Universidad Complutense de Madrid (VISAVET), la Universidad de Minnesota (STEMMA) y la Universidad de São Paulo — construyendo una perspectiva epidemiológica verdaderamente internacional.',
+          'edu.label':'Educación','edu.h2':'Formación Académica',
+          'edu.1.degree':'PhD, Epidemiología Experimental Aplicada a Zoonosis',
+          'edu.2.degree':'M.Sc., Epidemiología Experimental Aplicada a Zoonosis',
+          'edu.3.degree':'Médico Veterinario (MV)',
+          'contact.h2':'Contáctame',
+        }
+      };
+
+      let currentLang = 'en';
+
+      function applyLang(lang) {
+        const dict = i18n[lang];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+        document.documentElement.setAttribute('lang', lang);
+        document.getElementById('langFlag').textContent = lang === 'en' ? '🇪🇸' : '🇬🇧';
+        document.getElementById('langLabel').textContent = lang === 'en' ? 'ES' : 'EN';
+      }
+
+      function toggleLang() {
+        currentLang = currentLang === 'en' ? 'es' : 'en';
+        applyLang(currentLang);
+      }
     </script>
   </body>
 </html>
