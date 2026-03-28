@@ -180,6 +180,25 @@
       .figure-link:hover { gap: 0.7rem; }
       .figure-link::after { content: '→'; }
 
+      /* VIDEO EMBED */
+      .video-feature { margin-bottom: 2.5rem; border: 1px solid var(--border); overflow: hidden; background: #0a0b10; }
+      .video-feature-header { padding: 1.2rem 1.5rem 0.8rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1rem; }
+      .video-feature-header .video-tag { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: rgba(200,169,110,0.08); border: 1px solid rgba(200,169,110,0.2); padding: 0.2rem 0.6rem; }
+      .video-feature-header p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+      .video-wrap { position: relative; padding-top: 56.25%; display: block; }
+      .video-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.3s; }
+      .video-thumb-link { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+      .video-thumb-link:hover .video-thumb { opacity: 0.75; }
+      .video-play-btn {
+        width: 72px; height: 72px; border-radius: 50%;
+        background: rgba(200,169,110,0.92); display: flex; align-items: center; justify-content: center;
+        transition: transform 0.2s, background 0.2s; pointer-events: none;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+      }
+      .video-thumb-link:hover .video-play-btn { transform: scale(1.1); background: var(--accent); }
+      .video-play-btn svg { width: 28px; height: 28px; fill: #0a0b10; margin-left: 4px; }
+      .video-yt-label { position: absolute; bottom: 1rem; right: 1rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); background: rgba(0,0,0,0.5); padding: 0.2rem 0.5rem; pointer-events: none; }
+
       /* TIMELINE */
       .timeline { position: relative; padding-left: 2rem; }
       .timeline::before { content: ''; position: absolute; left: 0; top: 0.5rem; bottom: 0.5rem; width: 1px; background: var(--border); }
@@ -285,6 +304,16 @@
       /* RP ILLUSTRATIONS */
       .rp-illustration { height: 190px; overflow: hidden; border-bottom: 1px solid var(--border); background: #12151d; }
       .rp-illustration svg { width: 100%; height: 100%; display: block; }
+
+      /* PANEL SYSTEM */
+      .panel-hidden { display: none !important; }
+      @keyframes panelIn {
+        from { opacity: 0; transform: translateY(14px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .panel-in { animation: panelIn 0.38s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+      .nav-links a.nav-active { color: var(--accent) !important; }
+      .nav-links a.nav-active::after { content: '·'; margin-left: 0.3rem; }
 
       /* RESPONSIVE */
       @media (max-width: 900px) {
@@ -718,9 +747,17 @@
             <div class="rp-head">
               <span class="rp-head-num">03</span>
               <h3 data-i18n="research.03.h3">Control Strategy Evaluation</h3>
-              <span class="rp-count">6 <span data-i18n="rp.works">works</span></span>
+              <span class="rp-count">7 <span data-i18n="rp.works">works</span></span>
             </div>
             <div class="rp-papers">
+              <a href="https://doi.org/10.1016/j.prevetmed.2026.106848" class="rp-paper-row" target="_blank" rel="noreferrer">
+                <span class="rp-year">2026</span>
+                <div class="rp-info">
+                  <div class="rp-title">First highly pathogenic avian influenza outbreak in a commercial poultry farm in Brazil: outbreak timeline, control actions, risk analysis, and transmission modeling.</div>
+                  <div class="rp-journal">Preventive Veterinary Medicine · Cardenas NC, Lopes FNP, de Souza PASC, Groff FHS, Kowalski AP, Krein A, et al.</div>
+                </div>
+                <span class="rp-badge badge-journal" data-i18n="badge.journal">Journal</span>
+              </a>
               <a href="https://doi.org/10.1016/j.prevetmed.2025.106765" class="rp-paper-row" target="_blank" rel="noreferrer">
                 <span class="rp-year">2025</span>
                 <div class="rp-info">
@@ -895,6 +932,26 @@
         <p class="section-label" data-i18n="nav.gallery">Gallery</p>
         <h2 data-i18n="gallery.h2">Relevant Publications</h2>
         <p class="gallery-intro" data-i18n="gallery.intro">Publications where Nicolas Cardenas is author or co-author.</p>
+
+        <div class="video-feature fade-in">
+          <div class="video-feature-header">
+            <span class="video-tag" data-i18n="video.tag">Recent Research</span>
+            <p data-i18n="video.desc">Overview of ongoing research on disease modeling and livestock network analysis.</p>
+          </div>
+          <div class="video-wrap">
+            <img class="video-thumb"
+              src="https://img.youtube.com/vi/fY_7pSgqXg8/maxresdefault.jpg"
+              onerror="this.src='https://img.youtube.com/vi/fY_7pSgqXg8/hqdefault.jpg'"
+              alt="Video thumbnail — Recent Research" loading="lazy" />
+            <a class="video-thumb-link" href="https://youtu.be/fY_7pSgqXg8" target="_blank" rel="noreferrer" aria-label="Watch on YouTube">
+              <div class="video-play-btn">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <span class="video-yt-label">Watch on YouTube ↗</span>
+            </a>
+          </div>
+        </div>
+
         <div class="figure-grid">
           <div class="figure-card fade-in">
             <div class="figure-img-wrap">
@@ -1069,6 +1126,8 @@
           'gallery.fig3.desc':'Network properties, disease dynamics and the impact of targeted control actions on simulated secondary infected farms (Veterinary Research, 2022).',
           'gallery.fig4.desc':'Integrating epidemiological and economic models to estimate FMD outbreak costs in Brazil. Figure copyright Elsevier — not embedded here.',
           'gallery.link':'Source article',
+          'video.tag':'Recent Research',
+          'video.desc':'Overview of ongoing research on disease modeling and livestock network analysis.',
           'exp.h2':'Professional Experience',
           'exp.1.role':'Research Scholar (Associate Researcher) · Raleigh, NC',
           'exp.1.desc':'Leads data-driven epidemiological projects, mentors students and analysts, develops R-based outbreak tools, and contributes to grant and manuscript production.',
@@ -1119,6 +1178,8 @@
           'gallery.fig3.desc':'Propiedades de redes, dinámica de enfermedades e impacto de acciones de control dirigidas sobre granjas secundarias infectadas simuladas (Veterinary Research, 2022).',
           'gallery.fig4.desc':'Integración de modelos epidemiológicos y económicos para estimar los costos de brotes simulados de fiebre aftosa en Brasil. Figura con derechos Elsevier.',
           'gallery.link':'Artículo fuente',
+          'video.tag':'Investigación Reciente',
+          'video.desc':'Panorama de la investigación en curso sobre modelado de enfermedades y análisis de redes ganaderas.',
           'exp.h2':'Experiencia Profesional',
           'exp.1.role':'Investigador Scholar (Investigador Asociado) · Raleigh, NC',
           'exp.1.desc':'Lidera proyectos epidemiológicos basados en datos, mentora a estudiantes y analistas, desarrolla herramientas de brotes en R y contribuye a la producción de subvenciones y manuscritos.',
@@ -1152,6 +1213,92 @@
         currentLang = currentLang === 'en' ? 'es' : 'en';
         applyLang(currentLang);
       }
+
+      /* ── PANEL SYSTEM ── */
+      (function () {
+        const ALL = ['about','research','research-impact','gallery','experience','education','contact'];
+        const GROUPS = {
+          'about':           ['about'],
+          'research':        ['research'],
+          'research-impact': ['research-impact'],
+          'gallery':         ['gallery'],
+          'experience':      ['experience', 'education'],
+          'contact':         ['contact'],
+        };
+        const hero  = document.querySelector('.hero');
+        const stats = document.querySelector('.stats-bar');
+        let cur = 'hero';
+
+        function revealFadeIns(container) {
+          container.querySelectorAll('.fade-in:not(.visible)').forEach((el, i) => {
+            setTimeout(() => el.classList.add('visible'), 60 + i * 90);
+          });
+        }
+
+        function showPanel(id) {
+          if (id === cur) return;
+          cur = id;
+          const isHome = id === 'hero';
+
+          hero.style.display = isHome ? '' : 'none';
+          stats.classList.toggle('panel-hidden', !isHome);
+
+          ALL.forEach(p => {
+            const el = document.getElementById(p);
+            if (el) { el.classList.add('panel-hidden'); el.classList.remove('panel-in'); }
+          });
+
+          if (!isHome) {
+            (GROUPS[id] || [id]).forEach(p => {
+              const el = document.getElementById(p);
+              if (!el) return;
+              el.classList.remove('panel-hidden');
+              void el.offsetWidth;
+              el.classList.add('panel-in');
+              revealFadeIns(el);
+            });
+          }
+
+          window.scrollTo({ top: 0, behavior: 'instant' });
+
+          document.querySelectorAll('.nav-links a').forEach(a => {
+            const t = a.getAttribute('href').slice(1);
+            a.classList.toggle('nav-active', t === id);
+          });
+        }
+
+        /* nav links */
+        document.querySelectorAll('.nav-links a').forEach(a => {
+          a.addEventListener('click', e => {
+            e.preventDefault();
+            showPanel(a.getAttribute('href').slice(1));
+          });
+        });
+
+        /* logo → home */
+        document.querySelector('.nav-logo').addEventListener('click', e => {
+          e.preventDefault();
+          showPanel('hero');
+        });
+
+        /* CTA buttons & in-page anchors */
+        document.addEventListener('click', e => {
+          const a = e.target.closest('a[href^="#"]');
+          if (!a || a.closest('nav')) return;
+          const id = a.getAttribute('href').slice(1);
+          if (id === 'hero' || GROUPS[id]) {
+            e.preventDefault();
+            showPanel(id);
+          }
+        });
+
+        /* init: hide all panels, hero visible */
+        ALL.forEach(p => {
+          const el = document.getElementById(p);
+          if (el) el.classList.add('panel-hidden');
+        });
+        revealFadeIns(document.body);
+      })();
     </script>
   </body>
 </html>
