@@ -180,24 +180,27 @@
       .figure-link:hover { gap: 0.7rem; }
       .figure-link::after { content: '→'; }
 
-      /* VIDEO EMBED */
-      .video-feature { margin-bottom: 2.5rem; border: 1px solid var(--border); overflow: hidden; background: #0a0b10; }
-      .video-feature-header { padding: 1.2rem 1.5rem 0.8rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1rem; }
-      .video-feature-header .video-tag { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: rgba(200,169,110,0.08); border: 1px solid rgba(200,169,110,0.2); padding: 0.2rem 0.6rem; }
-      .video-feature-header p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+      /* VIDEO / MEDIA */
+      .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.5rem; }
+      .video-card { border: 1px solid var(--border); overflow: hidden; background: #0a0b10; transition: border-color 0.2s; }
+      .video-card:hover { border-color: rgba(200,169,110,0.3); }
+      .video-card-meta { padding: 1rem 1.2rem 1.1rem; }
+      .video-card-title { font-size: 0.9rem; color: var(--text); font-weight: 500; margin-bottom: 0.3rem; line-height: 1.4; }
+      .video-card-sub { font-size: 0.75rem; color: var(--muted); font-family: 'DM Mono', monospace; }
       .video-wrap { position: relative; padding-top: 56.25%; display: block; }
       .video-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.3s; }
       .video-thumb-link { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-decoration: none; }
       .video-thumb-link:hover .video-thumb { opacity: 0.75; }
       .video-play-btn {
-        width: 72px; height: 72px; border-radius: 50%;
+        width: 64px; height: 64px; border-radius: 50%;
         background: rgba(200,169,110,0.92); display: flex; align-items: center; justify-content: center;
         transition: transform 0.2s, background 0.2s; pointer-events: none;
         box-shadow: 0 4px 24px rgba(0,0,0,0.5);
       }
       .video-thumb-link:hover .video-play-btn { transform: scale(1.1); background: var(--accent); }
-      .video-play-btn svg { width: 28px; height: 28px; fill: #0a0b10; margin-left: 4px; }
-      .video-yt-label { position: absolute; bottom: 1rem; right: 1rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); background: rgba(0,0,0,0.5); padding: 0.2rem 0.5rem; pointer-events: none; }
+      .video-play-btn svg { width: 26px; height: 26px; fill: #0a0b10; margin-left: 4px; }
+      .video-yt-label { position: absolute; bottom: 0.7rem; right: 0.7rem; font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); background: rgba(0,0,0,0.5); padding: 0.18rem 0.45rem; pointer-events: none; }
+      @media (max-width: 900px) { .video-grid { grid-template-columns: 1fr; } }
 
       /* TIMELINE */
       .timeline { position: relative; padding-left: 2rem; }
@@ -329,8 +332,50 @@
         .stat-item::after { display: none; }
         footer { flex-direction: column; gap: 1rem; text-align: center; }
       }
+      /* HAMBURGER */
+      .hamburger {
+        display: none; flex-direction: column; justify-content: center; gap: 5px;
+        background: none; border: none; cursor: pointer; padding: 6px; z-index: 200;
+      }
+      .hamburger span {
+        display: block; width: 22px; height: 2px;
+        background: var(--text); border-radius: 2px;
+        transition: transform 0.25s, opacity 0.25s;
+      }
+      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+      /* MOBILE DRAWER */
+      .mobile-drawer {
+        display: none; position: fixed; inset: 0; top: 0; z-index: 150;
+        background: rgba(13,15,20,0.97); backdrop-filter: blur(16px);
+        flex-direction: column; align-items: center; justify-content: center;
+        gap: 0.5rem; padding: 2rem;
+        opacity: 0; pointer-events: none;
+        transition: opacity 0.25s;
+      }
+      .mobile-drawer.open { opacity: 1; pointer-events: all; }
+      .mobile-drawer a {
+        font-family: 'DM Mono', monospace; font-size: 1.1rem;
+        letter-spacing: 0.15em; text-transform: uppercase;
+        color: var(--muted); text-decoration: none;
+        padding: 0.7rem 1.5rem; transition: color 0.2s;
+        border-bottom: 1px solid var(--border); width: 100%; text-align: center;
+      }
+      .mobile-drawer a:last-child { border-bottom: none; }
+      .mobile-drawer a:hover, .mobile-drawer a.nav-active { color: var(--accent); }
+      .mobile-drawer .drawer-lang {
+        margin-top: 1.5rem; font-family: 'DM Mono', monospace; font-size: 0.8rem;
+        color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+        background: none; border: 1px solid var(--border); padding: 0.5rem 1.2rem; cursor: pointer;
+      }
+
       @media (max-width: 600px) {
         .nav-links { display: none; }
+        .lang-toggle { display: none; }
+        .hamburger { display: flex; }
+        .mobile-drawer { display: flex; }
         .edu-item { grid-template-columns: 1fr; }
         .pub-item { flex-direction: column; gap: 0.5rem; }
         .rp-paper-row { grid-template-columns: 2.5rem 1fr; }
@@ -353,13 +398,31 @@
         <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
         <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
         <li><a href="#research-impact" data-i18n="nav.publications">Publications</a></li>
+        <li><a href="#media" data-i18n="nav.media">Media</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
       <button class="lang-toggle" id="langToggle" onclick="toggleLang()" aria-label="Toggle language">
         <span class="flag" id="langFlag">🇪🇸</span>
         <span id="langLabel">ES</span>
       </button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleDrawer()">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <!-- Mobile navigation drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="#about"          data-i18n="nav.about"        onclick="drawerNav(this)">About</a>
+      <a href="#research"       data-i18n="nav.research"     onclick="drawerNav(this)">Research</a>
+      <a href="#gallery"        data-i18n="nav.gallery"      onclick="drawerNav(this)">Gallery</a>
+      <a href="#experience"     data-i18n="nav.experience"   onclick="drawerNav(this)">Experience</a>
+      <a href="#research-impact" data-i18n="nav.publications" onclick="drawerNav(this)">Publications</a>
+      <a href="#media"          data-i18n="nav.media"        onclick="drawerNav(this)">Media</a>
+      <a href="#contact"        data-i18n="nav.contact"      onclick="drawerNav(this)">Contact</a>
+      <button class="drawer-lang" onclick="toggleLang()">
+        <span id="drawerLangFlag">🇪🇸</span> <span id="drawerLangLabel">ES</span>
+      </button>
+    </div>
 
     <section class="hero" id="hero">
       <div class="hero-inner">
@@ -933,25 +996,6 @@
         <h2 data-i18n="gallery.h2">Relevant Publications</h2>
         <p class="gallery-intro" data-i18n="gallery.intro">Publications where Nicolas Cardenas is author or co-author.</p>
 
-        <div class="video-feature fade-in">
-          <div class="video-feature-header">
-            <span class="video-tag" data-i18n="video.tag">Recent Research</span>
-            <p data-i18n="video.desc">Overview of ongoing research on disease modeling and livestock network analysis.</p>
-          </div>
-          <div class="video-wrap">
-            <img class="video-thumb"
-              src="https://img.youtube.com/vi/fY_7pSgqXg8/maxresdefault.jpg"
-              onerror="this.src='https://img.youtube.com/vi/fY_7pSgqXg8/hqdefault.jpg'"
-              alt="Video thumbnail — Recent Research" loading="lazy" />
-            <a class="video-thumb-link" href="https://youtu.be/fY_7pSgqXg8" target="_blank" rel="noreferrer" aria-label="Watch on YouTube">
-              <div class="video-play-btn">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <span class="video-yt-label">Watch on YouTube ↗</span>
-            </a>
-          </div>
-        </div>
-
         <div class="figure-grid">
           <div class="figure-card fade-in">
             <div class="figure-img-wrap">
@@ -1050,6 +1094,36 @@
       </div>
     </section>
 
+    <section id="media">
+      <div class="container">
+        <p class="section-label" data-i18n="nav.media">Media</p>
+        <h2 data-i18n="media.h2">Videos &amp; Talks</h2>
+        <p class="gallery-intro" data-i18n="media.intro">Research presentations, outreach talks, and recorded seminars.</p>
+        <div class="video-grid fade-in">
+
+          <div class="video-card">
+            <div class="video-wrap">
+              <img class="video-thumb"
+                src="https://img.youtube.com/vi/p-Q9AIhtthI/maxresdefault.jpg"
+                onerror="this.src='https://img.youtube.com/vi/p-Q9AIhtthI/hqdefault.jpg'"
+                alt="Video thumbnail" loading="lazy" />
+              <a class="video-thumb-link" href="https://www.youtube.com/watch?v=p-Q9AIhtthI" target="_blank" rel="noreferrer" aria-label="Watch on YouTube">
+                <div class="video-play-btn">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <span class="video-yt-label">Watch on YouTube ↗</span>
+              </a>
+            </div>
+            <div class="video-card-meta">
+              <div class="video-card-title" data-i18n="media.v1.title">Recent Research — Disease Modeling &amp; Livestock Networks</div>
+              <div class="video-card-sub">2025 · Nicolas Cardenas</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
       <div class="container">
         <p class="section-label" data-i18n="nav.contact">Contact</p>
@@ -1092,7 +1166,10 @@
       const i18n = {
         en: {
           'nav.about':'About','nav.research':'Research','nav.gallery':'Gallery',
-          'nav.experience':'Experience','nav.publications':'Publications','nav.contact':'Contact',
+          'nav.experience':'Experience','nav.publications':'Publications','nav.media':'Media','nav.contact':'Contact',
+          'media.h2':'Videos & Talks',
+          'media.intro':'Research presentations, outreach talks, and recorded seminars.',
+          'media.v1.title':'Recent Research — Disease Modeling & Livestock Networks',
           'hero.eyebrow':'Animal Health Epidemiology',
           'hero.role':'Research Scholar, Population Health & Pathobiology · NC State University',
           'hero.lead':'Epidemiologist specializing in transboundary disease modeling, livestock network analysis, and AI-driven analytics for animal health systems.',
@@ -1144,7 +1221,10 @@
         },
         es: {
           'nav.about':'Sobre mí','nav.research':'Investigación','nav.gallery':'Galería',
-          'nav.experience':'Experiencia','nav.publications':'Publicaciones','nav.contact':'Contacto',
+          'nav.experience':'Experiencia','nav.publications':'Publicaciones','nav.media':'Medios','nav.contact':'Contacto',
+          'media.h2':'Videos y Charlas',
+          'media.intro':'Presentaciones de investigación, charlas de divulgación y seminarios grabados.',
+          'media.v1.title':'Investigación Reciente — Modelado de Enfermedades y Redes Ganaderas',
           'hero.eyebrow':'Epidemiología en Salud Animal',
           'hero.role':'Investigador Scholar, Salud Poblacional y Patobiología · NC State University',
           'hero.lead':'Epidemiólogo especializado en modelado de enfermedades transfronterizas, análisis de redes de movimiento ganadero y analítica basada en IA para sistemas de salud animal.',
@@ -1205,8 +1285,12 @@
           if (dict[key] !== undefined) el.textContent = dict[key];
         });
         document.documentElement.setAttribute('lang', lang);
-        document.getElementById('langFlag').textContent = lang === 'en' ? '🇪🇸' : '🇬🇧';
-        document.getElementById('langLabel').textContent = lang === 'en' ? 'ES' : 'EN';
+        const flag = lang === 'en' ? '🇪🇸' : '🇬🇧';
+        const label = lang === 'en' ? 'ES' : 'EN';
+        document.getElementById('langFlag').textContent = flag;
+        document.getElementById('langLabel').textContent = label;
+        document.getElementById('drawerLangFlag').textContent = flag;
+        document.getElementById('drawerLangLabel').textContent = label;
       }
 
       function toggleLang() {
@@ -1214,15 +1298,33 @@
         applyLang(currentLang);
       }
 
+      /* ── HAMBURGER ── */
+      function toggleDrawer() {
+        const btn = document.getElementById('hamburger');
+        const drawer = document.getElementById('mobileDrawer');
+        const open = drawer.classList.toggle('open');
+        btn.classList.toggle('open', open);
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+
+      function drawerNav(link) {
+        const id = link.getAttribute('href').slice(1);
+        toggleDrawer();
+        // showPanel is defined below; call after drawer closes
+        setTimeout(() => showPanel(id), 50);
+      }
+
       /* ── PANEL SYSTEM ── */
       (function () {
-        const ALL = ['about','research','research-impact','gallery','experience','education','contact'];
+        const ALL = ['about','research','research-impact','gallery','experience','education','media','contact'];
         const GROUPS = {
           'about':           ['about'],
           'research':        ['research'],
           'research-impact': ['research-impact'],
           'gallery':         ['gallery'],
           'experience':      ['experience', 'education'],
+          'media':           ['media'],
           'contact':         ['contact'],
         };
         const hero  = document.querySelector('.hero');
@@ -1261,7 +1363,7 @@
 
           window.scrollTo({ top: 0, behavior: 'instant' });
 
-          document.querySelectorAll('.nav-links a').forEach(a => {
+          document.querySelectorAll('.nav-links a, .mobile-drawer a').forEach(a => {
             const t = a.getAttribute('href').slice(1);
             a.classList.toggle('nav-active', t === id);
           });
